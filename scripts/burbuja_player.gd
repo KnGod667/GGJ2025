@@ -6,8 +6,9 @@ extends CharacterBody2D
 func _ready() -> void:
 	$burbuja_animation.play("IDLE")
 	
-func _physics_process(delta: float) -> void:
 	
+func _physics_process(delta: float) -> void:
+	#MOVIMIENTO
 	var mouse_direction = get_global_mouse_position()
 	
 	velocity = position.direction_to(mouse_direction) * BURBUJA_SPEED
@@ -24,3 +25,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		BURBUJA_SPEED = 15.0
 	
+	# o2 de las burbuja
+	if Ui.o2 > 0.1:
+		scale = Vector2(Ui.o2,Ui.o2)
+
+func hit_(): # Explotar la burbuja???
+	pass
+
+func restablecer_o2():
+	pass
