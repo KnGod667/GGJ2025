@@ -6,8 +6,6 @@ kanban-plugin: board
 
 ## to-do
 
-- [ ] peces/path rutes
-- [ ] control/ui/o2/vida/timealive
 - [ ] romper burbuja
 - [ ] movimiento persona
 
@@ -21,6 +19,8 @@ kanban-plugin: board
 
 ## done
 
+- [ ] peces/path rutes
+- [ ] control/ui/o2/vida/timealive
 - [ ] rocas de arriba
 - [ ] movimiento burbuja
 
