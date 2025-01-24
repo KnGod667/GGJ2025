@@ -105,7 +105,7 @@ script = ExtResource("1_411hq")
 modulate = Color(1, 1, 1, 0.827451)
 sprite_frames = SubResource("SpriteFrames_xhcw4")
 animation = &"IDLE"
-frame_progress = 0.409516
+frame_progress = 0.0401458
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.52015, 3.52015)
