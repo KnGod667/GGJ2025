@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvbor1j4b5lps"]
+
+[ext_resource type="Script" path="res://scripts/enemy_1.gd" id="1_5ak0b"]
+[ext_resource type="Texture2D" uid="uid://chmanpktdlvg4" path="res://resources/16-bit-spike-Sheet.png" id="1_r0ko4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48s2t"]
+
+[node name="ENEMY_1" type="Node2D"]
+script = ExtResource("1_5ak0b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+texture = ExtResource("1_r0ko4")
+hframes = 4
+
+[node name="HIT_AREA" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HIT_AREA"]
+shape = SubResource("CircleShape2D_48s2t")
+
+[connection signal="area_entered" from="HIT_AREA" to="." method="_on_hit_area_area_entered"]
