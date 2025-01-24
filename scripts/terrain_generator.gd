@@ -9,40 +9,80 @@ var displacement
 var new_displacement
 var width_interpolation = 0.0
 var displacement_interpolation = 0.0
-var y_offset = 0;
+var y_offset = 0
+var res
+var w_interpolation_rate
+var d_interpolation_rate
+	
+var d
+var w
+func generate_row():
+	var y = res.y - y_offset-1
+	if y < 0:
+		y = res.y-1
+		y_offset = 0
+	
+	for x in d:
+		data.set_pixel(x,y,Color(1,0,0))
+	for x in range(d,min(d+w,res.x)):
+		data.set_pixel(x,y,Color(0,1,0))
+	for x in range(d+w,res.x):
+		data.set_pixel(x,y,Color(1,0,0))
+	width_interpolation+=w_interpolation_rate
+	displacement_interpolation+=d_interpolation_rate
+		
+	if(width_interpolation>1.0):
+		width_interpolation = 0.0
+		width=new_width
+		new_width = randi_range(width_min,width_max)
+		w_interpolation_rate = 1.0/(2*abs(width-new_width))
+		print("width interpolated, width:",width," new width:",new_width)
+		
+	if(displacement_interpolation>1.0):
+		displacement_interpolation = 0.0
+		displacement = new_displacement
+		new_displacement = randi_range(0,res.x-new_width)
+		d_interpolation_rate = 1.0/(2*abs(displacement-new_displacement))
+		print("displacement interpolated, displacement:",displacement," new displacement:",new_displacement)
+		
+	d = floor(displacement*(1-displacement_interpolation)+new_displacement*(displacement_interpolation))
+	w = floor(width*(1-width_interpolation)+new_width*(width_interpolation))
+	y_offset+=1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var res = get_viewport().size
-	data = Image.create_empty(res.x,res.y,false,Image.FORMAT_RGBA8)
+	res = get_viewport().size
+	data = Image.create_empty(res.x,res.y,false,Image.FORMAT_R8)
 	width = res.x
 	displacement = 0
 	new_width = randi_range(width_min,width_max)
 	new_displacement = randi_range(0,res.x-new_width)
-	var interpolation_rate = 10/res.y
+	w_interpolation_rate = 1.0/(2*abs(width-new_width))
+	d_interpolation_rate = 1.0/(2*abs(displacement-new_displacement))
+	
+	d = floor(displacement*(1-displacement_interpolation)+new_displacement*(displacement_interpolation))
+	w = floor(width*(1-width_interpolation)+new_width*(width_interpolation))
+		
 	for y in range(res.y-1,0,-1):
-		print(width," ", new_width," ", displacement," ",new_displacement," ",width_interpolation)
-		if(width_interpolation>1.0):
-			print("lololo")
-			width_interpolation = 0
-			width=new_width
-			displacement = new_displacement
-			new_width = randi_range(width_min,width_max)
-			new_displacement = randi_range(0,res.x-new_width)
-		var d = floor(displacement*(1-width_interpolation)+new_displacement*(width_interpolation))
-		var w = floor(width*(1-width_interpolation)+new_width*(width_interpolation))
-		for x in d:
-			data.set_pixel(x,y,Color(1,0,0))
-		for x in range(d,d+w):
-			data.set_pixel(x,y,Color(0,1,0))
-		for x in range(d+w,res.x):
-			data.set_pixel(x,y,Color(1,0,0))
-		width_interpolation+=interpolation_rate
-		pass
-	$TextureRect.texture = ImageTexture.create_from_image(data)
+		generate_row()
 	($ColorRect.material as ShaderMaterial).set_shader_parameter("text",ImageTexture.create_from_image(data))
 	pass # Replace with function body.
 
-
+@export var scroll_speed = 60.0
+var scroll = 0.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	scroll+=delta*scroll_speed
+	if(scroll>1):
+		scroll -= 1.0
+		generate_row()
+		($ColorRect.material as ShaderMaterial).set_shader_parameter("text",ImageTexture.create_from_image(data))
+		($ColorRect.material as ShaderMaterial).set_shader_parameter("y_offset",y_offset)
+		pass
+	pass
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("ui_accept"):
+		scroll_speed=abs(scroll_speed-60.0)
+		pass
 	pass
