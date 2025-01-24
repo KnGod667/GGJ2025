@@ -86,7 +86,6 @@ size = Vector2(68, 68)
 [node name="Sprite" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_8hyw0")
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
