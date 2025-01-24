@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chmanpktdlvg4"
-path="res://.godot/imported/16-bit-spike-Sheet.png-1b116bff3631954c93ec9e75991f67cb.ctex"
+uid="uid://cwgam27vb2q5n"
+path="res://.godot/imported/buble_idle.png-88df76cc4ad09355a32f4448d4ce1914.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/16-bit-spike-Sheet.png"
-dest_files=["res://.godot/imported/16-bit-spike-Sheet.png-1b116bff3631954c93ec9e75991f67cb.ctex"]
+source_file="res://resources/player/buble_idle.png"
+dest_files=["res://.godot/imported/buble_idle.png-88df76cc4ad09355a32f4448d4ce1914.ctex"]
 
 [params]
 
