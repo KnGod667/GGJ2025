@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://km1737hsgp5f"]
+[gd_scene load_steps=18 format=3 uid="uid://b46vhjlfhats6"]
 
 [ext_resource type="Script" path="res://scripts/burbuja_player.gd" id="1_411hq"]
 [ext_resource type="Texture2D" uid="uid://cwgam27vb2q5n" path="res://resources/player/buble_idle.png" id="2_ndtks"]
