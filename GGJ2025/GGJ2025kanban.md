@@ -6,23 +6,23 @@ kanban-plugin: board
 
 ## to-do
 
-- [ ] peces/path rutes
-- [ ] control/ui/o2/vida/timealive
-- [ ] romper burbuja
 - [ ] movimiento persona
 
 
 ## doing
 
 - [ ] procedural map
-- [ ] global vars
+- [ ] romper burbuja
 - [ ] rocas lados
+- [ ] peces/path rutes
 
 
 ## done
 
 - [ ] rocas de arriba
 - [ ] movimiento burbuja
+- [ ] global vars
+- [ ] control/ui/o2/vida/timealive
 
 
 
