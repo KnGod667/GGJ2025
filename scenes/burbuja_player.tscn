@@ -1,0 +1,117 @@
+[gd_scene load_steps=18 format=3 uid="uid://b46vhjlfhats6"]
+
+[ext_resource type="Script" path="res://scripts/burbuja_player.gd" id="1_411hq"]
+[ext_resource type="Texture2D" uid="uid://cwgam27vb2q5n" path="res://resources/player/buble_idle.png" id="2_ndtks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k32o"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(0, 0, 109, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkexd"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(109, 0, 109, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj57i"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(218, 0, 109, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07auy"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(327, 0, 109, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giwxi"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(436, 0, 109, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tupho"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(0, 89, 109, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejoie"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(109, 89, 109, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hwee"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(218, 89, 109, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo31m"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(327, 89, 109, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cadf"]
+atlas = ExtResource("2_ndtks")
+region = Rect2(436, 89, 109, 89)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhcw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k32o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkexd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj57i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07auy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giwxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tupho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejoie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hwee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo31m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cadf")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ug4c"]
+
+[sub_resource type="Animation" id="Animation_jtyfa"]
+resource_name = "IDLE"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_ucj7r"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nu4wh"]
+_data = {
+"IDLE": SubResource("Animation_jtyfa"),
+"RESET": SubResource("Animation_ucj7r")
+}
+
+[node name="Burbuja_player" type="CharacterBody2D"]
+position = Vector2(0, 3)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_411hq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.827451)
+sprite_frames = SubResource("SpriteFrames_xhcw4")
+animation = &"IDLE"
+frame_progress = 0.517349
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.52015, 3.52015)
+shape = SubResource("CircleShape2D_0ug4c")
+
+[node name="burbuja_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nu4wh")
+}

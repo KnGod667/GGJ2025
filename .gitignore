@@ -1,2 +1,4 @@
 # Godot 4+ specific ignores
+.gitignore
 .godot/
+scenes_pruebas/
