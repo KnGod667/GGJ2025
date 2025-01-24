@@ -6,7 +6,6 @@ kanban-plugin: board
 
 ## to-do
 
-- [ ] rocas lados
 - [ ] peces/path rutes
 - [ ] control/ui/o2/vida/timealive
 - [ ] romper burbuja
@@ -17,6 +16,7 @@ kanban-plugin: board
 
 - [ ] procedural map
 - [ ] global vars
+- [ ] rocas lados
 
 
 ## done

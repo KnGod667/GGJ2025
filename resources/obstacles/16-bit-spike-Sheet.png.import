@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3x6e7k0yucrx"
-path="res://.godot/imported/bubble_prueba.png-a66ab2a65d9d241917d06cfeacfd99f8.ctex"
+uid="uid://chmanpktdlvg4"
+path="res://.godot/imported/16-bit-spike-Sheet.png-5e4141c6f59f508dd524d20d38aee2ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/bubble_prueba.png"
-dest_files=["res://.godot/imported/bubble_prueba.png-a66ab2a65d9d241917d06cfeacfd99f8.ctex"]
+source_file="res://resources/obstacles/16-bit-spike-Sheet.png"
+dest_files=["res://.godot/imported/16-bit-spike-Sheet.png-5e4141c6f59f508dd524d20d38aee2ab.ctex"]
 
 [params]
 
