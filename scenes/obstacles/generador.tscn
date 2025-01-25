@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://dm5j6sbefik67"]
+[gd_scene load_steps=2 format=3 uid="uid://dm5j6sbefik67"]
+
+[ext_resource type="Script" path="res://scripts/obstacles/generador.gd" id="1_o5jrp"]
 
 [node name="Generador" type="Node2D"]
+script = ExtResource("1_o5jrp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
