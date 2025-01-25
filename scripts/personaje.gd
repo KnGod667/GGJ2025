@@ -8,7 +8,6 @@ func _physics_process(delta: float) -> void:
 	if !$Burbuja_player.alive:
 		look_at(get_global_mouse_position())
 		var col = TerrainAdapter.get_collision_vector(global_position,x)
-		print(col)
 		if col!=Vector2():
 			modulate = Color(1,0,1)
 			move_and_collide(col*SPEED)
