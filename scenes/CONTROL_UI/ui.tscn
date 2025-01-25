@@ -14,9 +14,10 @@ script = ExtResource("1_goj53")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 48.0
-offset_right = 266.0
-offset_bottom = 58.0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 271.0
+offset_bottom = 61.0
 
 [node name="O2_ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -25,6 +26,9 @@ max_value = 1.0
 value = 0.1
 
 [node name="Vida_ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]

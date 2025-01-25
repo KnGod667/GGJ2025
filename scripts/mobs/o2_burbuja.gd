@@ -2,8 +2,9 @@ extends RigidBody2D
 
 var can = false
 
+
 func _ready() -> void:
-	
+	$Sprite2D.play("default")
 	if global_position.x <= 600:
 		apply_impulse(Vector2(randf_range(500, 600),0),Vector2.ZERO)
 	else:
@@ -12,9 +13,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if TerrainAdapter.is_coliding(global_position) and can:
 		delete_()
-
+		
 func delete_():
+	
 	queue_free()
+	
 	
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
