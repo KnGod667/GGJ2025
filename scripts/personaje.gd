@@ -5,10 +5,16 @@ var SPEED = 5
 var x = 20
 
 func _physics_process(delta: float) -> void:
-	#if TerrainAdapter.check_area_collision(global_position,x):
-	#	pass
 	if !$Burbuja_player.alive:
 		look_at(get_global_mouse_position())
+		var col = TerrainAdapter.get_collision_vector(global_position,x)
+		print(col)
+		if col!=Vector2():
+			modulate = Color(1,0,1)
+			move_and_collide(col*SPEED)
+		else:
+			modulate = Color(col.x,col.y,0.5)
+			pass
 		if global_position.distance_to(get_global_mouse_position()) > 5:
 			velocity = global_position.direction_to(get_global_mouse_position()) * SPEED
 			move_and_collide(velocity)
@@ -16,4 +22,5 @@ func _physics_process(delta: float) -> void:
 			Ui.vida -= 13 * delta
 					
 func dead():
-	queue_free() # Fin del Juego
+	pass
+	#queue_free() # Fin del Juego

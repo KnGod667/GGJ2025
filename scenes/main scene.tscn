@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnxw8vmc4fas2"]
+[gd_scene load_steps=6 format=3 uid="uid://dnxw8vmc4fas2"]
 
 [ext_resource type="PackedScene" uid="uid://dyranqmajllgv" path="res://scenes/terrain generator.tscn" id="1_3vxyn"]
 [ext_resource type="PackedScene" uid="uid://b3jnvwtu7da8p" path="res://scenes/CONTROL_UI/ui.tscn" id="2_p63ek"]
 [ext_resource type="Script" path="res://scripts/obstacles.gd" id="3_lmpng"]
 [ext_resource type="PackedScene" uid="uid://cw6q6vxj225wp" path="res://scenes/personaje.tscn" id="3_s1njr"]
+[ext_resource type="Script" path="res://scripts/mobs/enemies_fish.gd" id="4_opciq"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -16,5 +17,9 @@ position = Vector2(584, 577)
 [node name="Obstacles" type="Node2D" parent="TerrainGenerator"]
 position = Vector2(579, 642)
 script = ExtResource("3_lmpng")
+
+[node name="Enemies_fish" type="Node2D" parent="TerrainGenerator"]
+script = ExtResource("4_opciq")
+time_spawn = 2.0
 
 [node name="UI" parent="." instance=ExtResource("2_p63ek")]
