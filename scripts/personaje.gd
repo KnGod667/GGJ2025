@@ -4,7 +4,7 @@ var SPEED = 5
 
 func _physics_process(delta: float) -> void:
 	
-	if $"../Burbuja_player".alive:
+	if $"../Burbuja_player".alive:	 
 		position = $"../Burbuja_player".global_position
 	else:
 		look_at(get_global_mouse_position())
