@@ -39,7 +39,3 @@ func hit_(): # Explotar la burbuja???
 
 func aumentar_o2(tamanho: float):
 	Ui.o2 += tamanho
-
-
-
-	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyranqmajllgv"]
+[gd_scene load_steps=10 format=3 uid="uid://dxgs2m1lqnrvm"]
 
 [ext_resource type="Script" path="res://scripts/terrain_generator.gd" id="1_ss7b7"]
 [ext_resource type="Shader" path="res://shaders/terrain renderer.gdshader" id="2_bkwp5"]
