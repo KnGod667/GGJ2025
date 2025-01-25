@@ -50,13 +50,14 @@ func generate_row():
 		new_displacement = randi_range(0,res.x-new_width)
 		d_interpolation_rate = 1.0/(2*abs(displacement-new_displacement))
 
-	d = floor(linear_interpolation(displacement,new_displacement,displacement_interpolation))
-	w = floor(linear_interpolation(width,new_width,width_interpolation))
+	d = floor(cuadratic_interpolation(displacement,new_displacement,displacement_interpolation))
+	w = floor(cuadratic_interpolation(width,new_width,width_interpolation))
 	y_offset+=1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	res = get_viewport().size
+	
 	data = Image.create_empty(res.x,res.y,false,Image.FORMAT_R8)
 	width = res.x
 	displacement = 0
@@ -65,8 +66,8 @@ func _ready() -> void:
 	w_interpolation_rate = 1.0/(2*abs(width-new_width))
 	d_interpolation_rate = 1.0/(2*abs(displacement-new_displacement))
 	
-	d = floor(linear_interpolation(displacement,new_displacement,displacement_interpolation))
-	w = floor(linear_interpolation(width,new_width,width_interpolation))
+	d = floor(cuadratic_interpolation(displacement,new_displacement,displacement_interpolation))
+	w = floor(cuadratic_interpolation(width,new_width,width_interpolation))
 		
 	for y in range(res.y-1,0,-1):
 		generate_row()
@@ -75,9 +76,11 @@ func _ready() -> void:
 
 @export var scroll_speed = 60.0
 var scroll = 0.0
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	scroll+=delta*scroll_speed
+	if !GlobalVariables.paused:
+		scroll+=delta*scroll_speed
 	if(scroll>1):
 		scroll -= 1.0
 		generate_row()

@@ -20,5 +20,18 @@ func is_coliding(point:Vector2i) -> bool:
 	
 	return image.get_pixel(point.x,y).r>0.5
 
+func check_area_collision(point:Vector2i,radius:int) -> bool:
+	var base:Vector2 = Vector2i(1,0)*radius
+	var rotation = 0.0
+	var rotation_limit = PI*2
+	var step = PI/3
+	if is_coliding(point):
+		return true
+	while rotation < rotation_limit:
+		if is_coliding(Vector2(point)+base.rotated(rotation)):
+			return true
+		rotation+=step
+	return false
+	
 func _ready() -> void:
 	pass # Replace with function body.
