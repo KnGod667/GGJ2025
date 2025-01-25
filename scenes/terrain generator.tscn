@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyranqmajllgv"]
+
+[ext_resource type="Script" path="res://scripts/terrain_generator.gd" id="1_ss7b7"]
+[ext_resource type="Shader" path="res://shaders/terrain renderer.gdshader" id="2_bkwp5"]
+
+[sub_resource type="Gradient" id="Gradient_xvlep"]
+colors = PackedColorArray(1, 0.976471, 0, 1, 1, 0.164706, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p3uvk"]
+gradient = SubResource("Gradient_xvlep")
+
+[sub_resource type="Gradient" id="Gradient_ty4qc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3mvih"]
+gradient = SubResource("Gradient_ty4qc")
+
+[sub_resource type="Gradient" id="Gradient_07y0u"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kasf8"]
+gradient = SubResource("Gradient_07y0u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0as8"]
+shader = ExtResource("2_bkwp5")
+shader_parameter/y_offset = 0
+shader_parameter/text = SubResource("GradientTexture2D_kasf8")
+shader_parameter/background = SubResource("GradientTexture2D_p3uvk")
+shader_parameter/cliff = SubResource("GradientTexture2D_3mvih")
+
+[node name="TerrainGenerator" type="CanvasLayer"]
+script = ExtResource("1_ss7b7")
+width_min = 400
+width_max = 600
+scroll_speed = 120.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_p0as8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
