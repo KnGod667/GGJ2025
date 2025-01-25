@@ -5,8 +5,8 @@ var SPEED = 5
 var x = 20
 
 func _physics_process(delta: float) -> void:
-	if TerrainAdapter.check_area_collision(global_position,x):
-		dead()
+	#if TerrainAdapter.check_area_collision(global_position,x):
+	#	pass
 	if !$Burbuja_player.alive:
 		look_at(get_global_mouse_position())
 		if global_position.distance_to(get_global_mouse_position()) > 5:

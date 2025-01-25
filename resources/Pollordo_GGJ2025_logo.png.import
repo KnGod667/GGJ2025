@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://250gc0o3kd4"
-path="res://.godot/imported/Pollordo_GGJ2025_logo.jpg-d2f7b07e8ba5a1044d198bb8eafd7d4a.ctex"
+uid="uid://cm5mhao2hre2n"
+path="res://.godot/imported/Pollordo_GGJ2025_logo.png-96aec275ffcc6661b5922e5b883d207b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Pollordo_GGJ2025_logo.jpg"
-dest_files=["res://.godot/imported/Pollordo_GGJ2025_logo.jpg-d2f7b07e8ba5a1044d198bb8eafd7d4a.ctex"]
+source_file="res://resources/Pollordo_GGJ2025_logo.png"
+dest_files=["res://.godot/imported/Pollordo_GGJ2025_logo.png-96aec275ffcc6661b5922e5b883d207b.ctex"]
 
 [params]
 
