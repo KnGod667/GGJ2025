@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _r_timer_timeout():
 	rnd =  randi_range(-300, 300)
-	pos = Vector2(rnd, -640)
+	pos = Vector2(rnd, -620)
 	if !TerrainAdapter.is_coliding(pos):
 		rockIns = rock.instantiate()
 		rockIns.position = pos
