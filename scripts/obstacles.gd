@@ -3,8 +3,9 @@ extends Node2D
 
 var timer :Timer = Timer.new() 
 var gey  =  preload("res://scenes/obstacles/generador.tscn")
-var geyIns
-var pos = global_position + Vector2(0, 200)
+var geyIns : Node2D
+var pos = global_position + Vector2(0, -600)
+var pos2 =global_position + Vector2(0, -590)
 
 #Crea un timer para hacer el escaneo cada x tiempo
 func _ready() -> void:
@@ -13,22 +14,33 @@ func _ready() -> void:
 	timer.start(2)
 	
 
+func _process(delta: float) -> void:
+	pass
 #Al acabar de forma aleatoria escanea o para derecha o para izquierda poquito a poco
 func _timer_timeout():
-	geyIns = gey.instantiate()
-	if randi()%10 < 5:
-		scan(5)
-	scan(-5)
+	if !TerrainAdapter.is_coliding(pos):
+		geyIns = gey.instantiate()
+		if randi()%10 < 5:
+			scan(5)
+		else:
+			scan(-5)
 
 #Escanea en la dir dicha, genera lo que quieras en esa posicion en que detecto colision y reinicia la pos para la sig generacion
 func scan(move):
-	while !TerrainAdapter.is_coliding(pos):
+	while !TerrainAdapter.is_coliding(pos) and pos.x<TerrainAdapter.image.get_width():
 		pos += Vector2(move, 0)
-	generateObj(pos)
-	pos = global_position + Vector2(0, 200)
+		pos2 += Vector2(move, 0)
+	var pendiente = pendiente(pos, pos2)
+	print(pendiente)
+	generateObj(pos, pendiente)
+	pos = global_position + Vector2(0, -400)
 
 #Esto esta chapucero pero add el objeto al nodo y lo posiciona donde encontro la colision
-func generateObj(posGen):
+func generateObj(posGen, pendiente):
+	geyIns.rotation = pendiente
 	add_child(geyIns)
-	var f : Node2D = get_child(1)
+	var f : Node2D = get_child(get_child_count()-1)
 	f.global_position = posGen
+	
+func pendiente(p, p2):
+	return (p.y - p2.y)/(p.x - p2.x)
