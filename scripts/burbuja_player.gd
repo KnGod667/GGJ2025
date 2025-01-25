@@ -14,7 +14,6 @@ func _physics_process(delta: float) -> void:
 	#MOVIMIENTO
 	if alive:
 		var mouse_direction = get_global_mouse_position()
-		#print(global_position.distance_to(mouse_direction))
 		if global_position.distance_to(mouse_direction) > 60:
 			speed = min(speed+BURBUJA_ACELERACION * delta,BURBUJA_MAX_SPEED)
 		elif global_position.distance_to(mouse_direction) > 10:
