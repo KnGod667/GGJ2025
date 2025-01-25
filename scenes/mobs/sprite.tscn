@@ -1,94 +1,72 @@
-[gd_scene load_steps=14 format=3 uid="uid://d06f2mcrhfy6l"]
+[gd_scene load_steps=11 format=3 uid="uid://d06f2mcrhfy6l"]
 
-[ext_resource type="Texture2D" uid="uid://cwgam27vb2q5n" path="res://resources/player/buble_idle.png" id="1_rkeha"]
+[ext_resource type="Script" path="res://scripts/mobs/ENEMY_FISHH.gd" id="1_7lgjv"]
+[ext_resource type="Texture2D" uid="uid://t1sgci6vxbpt" path="res://resources/sprites_prueba/ELPESCADODEXAVIERATACA.png" id="1_mwdyd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lhmwx"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(0, 0, 109, 89)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcm13"]
+atlas = ExtResource("1_mwdyd")
+region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4kbsr"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(109, 0, 109, 89)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7poim"]
+atlas = ExtResource("1_mwdyd")
+region = Rect2(48, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mkd8j"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(218, 0, 109, 89)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2xni"]
+atlas = ExtResource("1_mwdyd")
+region = Rect2(96, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_veatq"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(327, 0, 109, 89)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqigy"]
+atlas = ExtResource("1_mwdyd")
+region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ypesj"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(436, 0, 109, 89)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o1ih"]
+atlas = ExtResource("1_mwdyd")
+region = Rect2(192, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xy01"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(0, 89, 109, 89)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oafgi"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(109, 89, 109, 89)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6whw4"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(218, 89, 109, 89)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mh37f"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(327, 89, 109, 89)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pfyx3"]
-atlas = ExtResource("1_rkeha")
-region = Rect2(436, 89, 109, 89)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6o3t"]
+atlas = ExtResource("1_mwdyd")
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8hyw0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lhmwx")
+"texture": SubResource("AtlasTexture_vcm13")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4kbsr")
+"texture": SubResource("AtlasTexture_7poim")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mkd8j")
+"texture": SubResource("AtlasTexture_t2xni")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_veatq")
+"texture": SubResource("AtlasTexture_jqigy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ypesj")
+"texture": SubResource("AtlasTexture_1o1ih")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4xy01")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oafgi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6whw4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mh37f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pfyx3")
+"texture": SubResource("AtlasTexture_q6o3t")
 }],
 "loop": true,
-"name": &"default",
+"name": &"IDLE",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cbhf"]
 size = Vector2(68, 68)
 
-[node name="Sprite" type="Node2D"]
+[node name="ENEMY_FISHH" type="Node2D"]
+script = ExtResource("1_7lgjv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -1)
+scale = Vector2(2.49902, 2.49902)
 sprite_frames = SubResource("SpriteFrames_8hyw0")
+animation = &"IDLE"
+frame_progress = 0.340238
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["enemy"]]
+[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_3cbhf")

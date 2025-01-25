@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm5j6sbefik67"]
 
 [ext_resource type="Script" path="res://scripts/obstacles/generador.gd" id="1_o5jrp"]
-[ext_resource type="Texture2D" uid="uid://cm5mhao2hre2n" path="res://resources/Pollordo_GGJ2025_logo.png" id="2_fp6e0"]
+[ext_resource type="Texture2D" uid="uid://ck0gtu4q58tj7" path="res://resources/sprites_prueba/ELHUECODEXAVIER.png" id="2_3jpt6"]
 
 [node name="Generador" type="Node2D"]
 script = ExtResource("1_o5jrp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0595703, 0.0683594)
-texture = ExtResource("2_fp6e0")
+scale = Vector2(0.386079, 0.443041)
+texture = ExtResource("2_3jpt6")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 7.0
