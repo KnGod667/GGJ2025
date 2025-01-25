@@ -15,7 +15,7 @@ void fragment() {
 		COLOR = texture(background,SCREEN_UV);
 	}
 	//COLOR*=vec4(0.5 + 0.5*cos(TIME+UV.xyx+vec3(0,2,4)),1.0);
-	COLOR=texture(text,UV);
+	//COLOR=texture(text,UV);
 	// Called for every pixel the material is visible on.
 }
 
