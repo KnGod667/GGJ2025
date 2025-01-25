@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://csxbxafn05pjo"]
+[gd_scene load_steps=5 format=3 uid="uid://cw6q6vxj225wp"]
 
 [ext_resource type="Script" path="res://scripts/personaje.gd" id="1_0ib0y"]
-[ext_resource type="PackedScene" uid="uid://b46vhjlfhats6" path="res://scenes/burbuja_player.tscn" id="2_mdemc"]
+[ext_resource type="PackedScene" uid="uid://km1737hsgp5f" path="res://scenes/burbuja_player.tscn" id="2_mdemc"]
+[ext_resource type="Texture2D" uid="uid://250gc0o3kd4" path="res://resources/Pollordo_GGJ2025_logo.jpg" id="2_xix0v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3jff"]
 radius = 8.47512
@@ -14,7 +15,8 @@ script = ExtResource("1_0ib0y")
 
 [node name="BubblePrueba" type="Sprite2D" parent="."]
 position = Vector2(5.96046e-08, 2)
-scale = Vector2(1.32438, 1.32438)
+scale = Vector2(0.209, 0.209)
+texture = ExtResource("2_xix0v")
 hframes = 8
 vframes = 6
 
