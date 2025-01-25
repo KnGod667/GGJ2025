@@ -14,10 +14,10 @@ func is_coliding(point:Vector2i) -> bool:
 		else:
 			return false
 		pass
-	var y = (point.y-tg.y_offset)
+	var y = (point.y-tg.y_offset+400)
 	if y < 0:
 		y+=image.get_height()
-	
+	print(point.x," ",y," ",image.get_pixel(point.x,y))
 	return image.get_pixel(point.x,y).r>0.5
 
 func check_area_collision(point:Vector2i,radius:int) -> bool:
@@ -35,3 +35,10 @@ func check_area_collision(point:Vector2i,radius:int) -> bool:
 	
 func _ready() -> void:
 	pass # Replace with function body.
+
+func _input(event: InputEvent) -> void:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if is_coliding(get_viewport().get_mouse_position()):
+			print("yes")
+		else:
+			print("no")
