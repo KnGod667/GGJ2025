@@ -24,3 +24,19 @@ func _physics_process(delta: float) -> void:
 func dead():
 	pass
 	#queue_free() # Fin del Juego
+
+func hit_():
+	Ui.vida -= 10
+	if Ui.vida <= 0:
+		dead()
+
+func aumentar_burbuja(tamanho:float):
+
+	$Burbuja_player.aumentar_o2(tamanho)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy") and !$Burbuja_player.alive:
+		hit_()
+	if area.is_in_group("enemy") and $Burbuja_player.alive:
+		$Burbuja_player.hit_()

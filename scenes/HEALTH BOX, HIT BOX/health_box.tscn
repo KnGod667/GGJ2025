@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://ivw4dgiph3u7"]
+
+[node name="health box" type="Area2D" groups=["HEALTH"]]
