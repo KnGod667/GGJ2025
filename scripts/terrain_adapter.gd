@@ -14,21 +14,28 @@ func is_coliding(point:Vector2i) -> bool:
 			return false
 		pass
 	var y = (point.y-tg.y_offset+400)
+	
 	if y < 0:
 		y+=image.get_height()
+	if y > image.get_width() or y < 0:
+		return false
+	if point.x >= image.get_width() or point.x < -400:
+		return false
+	
+
 	return image.get_pixel(point.x,y).r>0.5
 
 func get_collision_vector(point:Vector2i,radius:int) -> Vector2:
 	var base:Vector2 = Vector2i(1,0)*radius
 	var rotation = 0.0
 	var rotation_limit = PI*2
-	var step = PI/3
+	var step = PI/18
 	var sum = Vector2()
 	var count = 0
 	while rotation < rotation_limit:
 		var rot = Vector2(point)+base.rotated(rotation)
 		if is_coliding(rot):
-			sum+=rot
+			sum+=rot.normalized()
 			count+=1
 		rotation+=step
 	if count == 0:

@@ -26,7 +26,8 @@ func _timer_timeout():
 
 #Escanea en la dir dicha, genera lo que quieras en esa posicion en que detecto colision y reinicia la pos para la sig generacion
 func scan(move):
-	while !TerrainAdapter.is_coliding(pos) and (pos.x<TerrainAdapter.image.get_width()):
+	while !TerrainAdapter.is_coliding(pos) and pos.x<TerrainAdapter.image.get_width() and pos.x>=0:
+
 		pos += Vector2(move, 0)
 		pos2 += Vector2(move, 0)
 	var pendiente = pendiente(pos, pos2)
