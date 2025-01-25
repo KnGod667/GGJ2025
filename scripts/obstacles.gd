@@ -13,7 +13,7 @@ var res
 func _ready() -> void:
 	res = get_viewport().size.x/2
 	pos = global_position + Vector2(res, -200)
-	pos2 = global_position + Vector2(res, -190)
+	pos2 = global_position + Vector2(res, -195)
 	add_child(timer1)
 	timer1.timeout.connect(_timer_timeout)
 	timer1.start(6)
@@ -35,7 +35,6 @@ func scan(move):
 	while !TerrainAdapter.is_coliding(pos2) and pos2.x<TerrainAdapter.image.get_width() and pos2.x>=0:
 		pos2 += Vector2(move, 0)
 	var pendiente = pendiente(pos, pos2)
-	print(pendiente)
 	var angle = atan(pendiente)+PI
 	generateObj(pos, angle)
 	pos = global_position + Vector2(res, -200)
