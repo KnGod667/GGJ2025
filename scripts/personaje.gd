@@ -23,8 +23,8 @@ func dead():
 	#queue_free() # Fin del Juego
 
 func hit_():
-	Ui.vida -= 10
-	if Ui.vida <= 0:
+	GlobalVariables.vida -= 10
+	if GlobalVariables.vida <= 0:
 		dead()
 
 func aumentar_burbuja(tamanho:float):
