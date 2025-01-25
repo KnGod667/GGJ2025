@@ -31,7 +31,6 @@ func scan(move):
 		pos += Vector2(move, 0)
 		pos2 += Vector2(move, 0)
 	var pendiente = pendiente(pos, pos2)
-	print(pendiente)
 	generateObj(pos, pendiente)
 	pos = global_position + Vector2(0, -400)
 

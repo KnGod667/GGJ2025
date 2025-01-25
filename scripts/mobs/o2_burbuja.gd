@@ -3,12 +3,10 @@ extends RigidBody2D
 
 func _ready() -> void:
 	
-	#cambiar variable respecto a la inclinacion
-	if position.x < 500:
-		
-		apply_impulse(Vector2(randf_range(230, 290),0),Vector2.ZERO)
+	if global_position.x <= 600:
+		apply_impulse(Vector2(randf_range(500, 600),0),Vector2.ZERO)
 	else:
-		apply_impulse(Vector2(randf_range(-290, -230),0),Vector2.ZERO)
+		apply_impulse(Vector2(randf_range(-600, -500),0),Vector2.ZERO)
 
 		
 
