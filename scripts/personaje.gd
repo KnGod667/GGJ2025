@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 5
+@export var SPEED = 5.0
 #Vars para el escaneo de colision, aunque las veo algo toscas
 var x = 20
 
@@ -28,7 +28,6 @@ func hit_():
 		dead()
 
 func aumentar_burbuja(tamanho:float):
-
 	$Burbuja_player.aumentar_o2(tamanho)
 
 
