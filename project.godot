@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Ggj 2025"
+run/main_scene="res://scenes/main scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://resources/Pollordo_GGJ2025_logo.jpg"
 
