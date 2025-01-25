@@ -17,12 +17,12 @@ func is_coliding(point:Vector2i) -> bool:
 	
 	if y < 0:
 		y+=image.get_height()
-	
 	if y > image.get_width() or y < 0:
 		return false
 	if point.x >= image.get_width() or point.x < -400:
 		return false
 	
+
 	return image.get_pixel(point.x,y).r>0.5
 
 func get_collision_vector(point:Vector2i,radius:int) -> Vector2:
