@@ -16,6 +16,12 @@ var d_interpolation_rate
 	
 var d
 var w
+
+func linear_interpolation(val1:float,val2:float,x:float)->float:
+	return val1*(1-x)+val2*(x)
+
+func cuadratic_interpolation(val1:float,val2:float,x:float)->float:
+	return val1*(1-x*x)+val2*(x*x)
 func generate_row():
 	var y = res.y - y_offset-1
 	if y < 0:
@@ -45,8 +51,8 @@ func generate_row():
 		d_interpolation_rate = 1.0/(2*abs(displacement-new_displacement))
 		print("displacement interpolated, displacement:",displacement," new displacement:",new_displacement)
 		
-	d = floor(displacement*(1-displacement_interpolation)+new_displacement*(displacement_interpolation))
-	w = floor(width*(1-width_interpolation)+new_width*(width_interpolation))
+	d = floor(linear_interpolation(displacement,new_displacement,displacement_interpolation))
+	w = floor(linear_interpolation(width,new_width,width_interpolation))
 	y_offset+=1
 
 # Called when the node enters the scene tree for the first time.
@@ -60,8 +66,8 @@ func _ready() -> void:
 	w_interpolation_rate = 1.0/(2*abs(width-new_width))
 	d_interpolation_rate = 1.0/(2*abs(displacement-new_displacement))
 	
-	d = floor(displacement*(1-displacement_interpolation)+new_displacement*(displacement_interpolation))
-	w = floor(width*(1-width_interpolation)+new_width*(width_interpolation))
+	d = floor(linear_interpolation(displacement,new_displacement,displacement_interpolation))
+	w = floor(linear_interpolation(width,new_width,width_interpolation))
 		
 	for y in range(res.y-1,0,-1):
 		generate_row()
@@ -84,5 +90,6 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("ui_accept"):
 		scroll_speed=abs(scroll_speed-60.0)
+		print(TerrainAdapter.is_coliding(get_viewport().get_mouse_position()))
 		pass
 	pass
