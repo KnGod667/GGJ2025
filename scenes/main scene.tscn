@@ -14,6 +14,7 @@ z_index = 2
 position = Vector2(584, 577)
 
 [node name="Obstacles" type="Node2D" parent="TerrainGenerator"]
+position = Vector2(579, 642)
 script = ExtResource("3_lmpng")
 
 [node name="UI" parent="." instance=ExtResource("2_p63ek")]

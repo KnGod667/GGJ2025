@@ -24,7 +24,9 @@ gradient = SubResource("Gradient_obw1e")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p0as8"]
 shader = ExtResource("2_bkwp5")
+shader_parameter/text_y_resolution = null
 shader_parameter/y_offset = 0
+shader_parameter/resolution_offset = 0
 shader_parameter/text = SubResource("GradientTexture2D_kasf8")
 shader_parameter/background = SubResource("GradientTexture2D_p3uvk")
 shader_parameter/cliff = SubResource("GradientTexture2D_3mvih")

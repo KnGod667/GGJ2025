@@ -57,7 +57,7 @@ func generate_row():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	res = get_viewport().size
-	
+	res.y+=400
 	data = Image.create_empty(res.x,res.y,false,Image.FORMAT_R8)
 	width = res.x
 	displacement = 0
@@ -72,6 +72,8 @@ func _ready() -> void:
 	for y in range(res.y-1,0,-1):
 		generate_row()
 	($ColorRect.material as ShaderMaterial).set_shader_parameter("text",ImageTexture.create_from_image(data))
+	($ColorRect.material as ShaderMaterial).set_shader_parameter("text_y_resolution",res.y)
+	($ColorRect.material as ShaderMaterial).set_shader_parameter("resolution_offset",400)
 	pass # Replace with function body.
 
 @export var scroll_speed = 60.0
