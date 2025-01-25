@@ -4,20 +4,23 @@
 [ext_resource type="Shader" path="res://shaders/terrain renderer.gdshader" id="2_bkwp5"]
 
 [sub_resource type="Gradient" id="Gradient_xvlep"]
-colors = PackedColorArray(1, 0.976471, 0, 1, 1, 0.164706, 1, 1)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.556863, 0.372549, 0.0431373, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_p3uvk"]
 gradient = SubResource("Gradient_xvlep")
 
 [sub_resource type="Gradient" id="Gradient_ty4qc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0.694118, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3mvih"]
 gradient = SubResource("Gradient_ty4qc")
 
-[sub_resource type="Gradient" id="Gradient_07y0u"]
+[sub_resource type="Gradient" id="Gradient_obw1e"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kasf8"]
-gradient = SubResource("Gradient_07y0u")
+gradient = SubResource("Gradient_obw1e")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p0as8"]
 shader = ExtResource("2_bkwp5")

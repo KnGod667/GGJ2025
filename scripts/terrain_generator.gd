@@ -22,6 +22,7 @@ func linear_interpolation(val1:float,val2:float,x:float)->float:
 
 func cuadratic_interpolation(val1:float,val2:float,x:float)->float:
 	return val1*(1-x*x)+val2*(x*x)
+
 func generate_row():
 	var y = res.y - y_offset-1
 	if y < 0:
@@ -42,15 +43,13 @@ func generate_row():
 		width=new_width
 		new_width = randi_range(width_min,width_max)
 		w_interpolation_rate = 1.0/(2*abs(width-new_width))
-		print("width interpolated, width:",width," new width:",new_width)
-		
+
 	if(displacement_interpolation>1.0):
 		displacement_interpolation = 0.0
 		displacement = new_displacement
 		new_displacement = randi_range(0,res.x-new_width)
 		d_interpolation_rate = 1.0/(2*abs(displacement-new_displacement))
-		print("displacement interpolated, displacement:",displacement," new displacement:",new_displacement)
-		
+
 	d = floor(linear_interpolation(displacement,new_displacement,displacement_interpolation))
 	w = floor(linear_interpolation(width,new_width,width_interpolation))
 	y_offset+=1
@@ -84,12 +83,5 @@ func _process(delta: float) -> void:
 		generate_row()
 		($ColorRect.material as ShaderMaterial).set_shader_parameter("text",ImageTexture.create_from_image(data))
 		($ColorRect.material as ShaderMaterial).set_shader_parameter("y_offset",y_offset)
-		pass
-	pass
-
-func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("ui_accept"):
-		scroll_speed=abs(scroll_speed-60.0)
-		print(TerrainAdapter.is_coliding(get_viewport().get_mouse_position()))
 		pass
 	pass
