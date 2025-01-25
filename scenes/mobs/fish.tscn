@@ -30,7 +30,6 @@ point_count = 31
 script = ExtResource("1_te6qd")
 
 [node name="path1" type="Path2D" parent="."]
-position = Vector2(645, 639)
 curve = SubResource("Curve2D_c8cvd")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="path1"]
@@ -39,7 +38,6 @@ rotation = -1.33748
 loop = false
 
 [node name="path2" type="Path2D" parent="."]
-position = Vector2(645, 639)
 curve = SubResource("Curve2D_18wgj")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="path2"]
@@ -47,7 +45,6 @@ rotation = -0.844154
 loop = false
 
 [node name="path3" type="Path2D" parent="."]
-position = Vector2(645, 639)
 curve = SubResource("Curve2D_25udm")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="path3"]
@@ -57,7 +54,6 @@ progress = 4995.25
 loop = false
 
 [node name="path4" type="Path2D" parent="."]
-position = Vector2(645, 639)
 curve = SubResource("Curve2D_smw2k")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="path4"]
