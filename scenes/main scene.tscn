@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cw6q6vxj225wp" path="res://scenes/personaje.tscn" id="3_s1njr"]
 [ext_resource type="Script" path="res://scripts/mobs/enemies_fish.gd" id="4_opciq"]
 [ext_resource type="Script" path="res://scripts/rocks.gd" id="5_vjyml"]
-[ext_resource type="Shader" uid="uid://doqp8heefhond" path="res://scenes/vigneethe.tres" id="6_opt6e"]
+[ext_resource type="Shader" uid="uid://bcrdjpphyub0d" path="res://scenes/vigneethe.tres" id="6_opt6e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tkcll"]
 shader = ExtResource("6_opt6e")
@@ -16,6 +16,7 @@ shader = ExtResource("6_opt6e")
 script = ExtResource("1_3csix")
 
 [node name="TerrainGenerator" parent="." instance=ExtResource("1_3vxyn")]
+process_mode = 4
 
 [node name="Personaje" parent="TerrainGenerator" instance=ExtResource("3_s1njr")]
 z_index = 2
