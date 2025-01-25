@@ -1,17 +1,14 @@
-extends Control
+extends Node
 
-var time: int = 0
-# Called when the node enters the scene tree for the first time.
+var vida: float
+var o2 : float 
+
 func _ready() -> void:
-	pass#$"../Time_of_Game".start()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$CanvasLayer/VBoxContainer/O2_ProgressBar.value = Ui.o2
-	$CanvasLayer/VBoxContainer/Vida_ProgressBar.value = Ui.vida
+	vida = 100
+	o2 = 1
 	
-
-func _on_time_of_game_timeout() -> void:
-	time += 1
-	$CanvasLayer/VBoxContainer2/Time_Label.text = "Time: " + str(time)
+	
+func _process(delta: float) -> void:
+	if o2 > 0:
+		o2 -= 0.1 * delta
+	
