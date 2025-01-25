@@ -11,9 +11,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if position.y <= 650:
-		if TerrainAdapter.check_area_collision(position, 5):
-			direction = -TerrainAdapter.get_collision_vector(position, 5)
-			position.x += (delta*speed)*direction
+		if TerrainAdapter.check_area_collision(global_position, 5):
+			direction = -TerrainAdapter.get_collision_vector(global_position, 5)
+			position += (delta*speed)*direction
 		position.y += delta * speed
 	else:
 		queue_free()
