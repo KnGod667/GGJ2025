@@ -35,7 +35,6 @@ shader_parameter/cliff = SubResource("GradientTexture2D_3mvih")
 script = ExtResource("1_ss7b7")
 width_min = 400
 width_max = 600
-scroll_speed = 120.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_p0as8")

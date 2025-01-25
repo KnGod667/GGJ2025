@@ -76,13 +76,12 @@ func _ready() -> void:
 	($ColorRect.material as ShaderMaterial).set_shader_parameter("resolution_offset",400)
 	pass # Replace with function body.
 
-@export var scroll_speed = 60.0
 var scroll = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if !GlobalVariables.paused:
-		scroll+=delta*scroll_speed
+		scroll+=delta*GlobalVariables.scroll_speed
 	if(scroll>1):
 		scroll -= 1.0
 		generate_row()

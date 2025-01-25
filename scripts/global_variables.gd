@@ -1,6 +1,7 @@
 extends Node
 
 var paused = false
+@export var scroll_speed = 120.0
 
 func pause(val):
 	paused = val
