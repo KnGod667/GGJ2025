@@ -1,6 +1,5 @@
 [gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://bcrdjpphyub0d"]
 
-
 [sub_resource type="Gradient" id="Gradient_johh5"]
 offsets = PackedFloat32Array(0, 0.809917, 1)
 colors = PackedColorArray(0.0413223, 0.0413223, 0.0413223, 1, 0.659313, 0.659313, 0.659313, 1, 1, 1, 1, 1)

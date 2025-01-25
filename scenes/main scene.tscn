@@ -8,6 +8,11 @@
 [ext_resource type="Script" path="res://scripts/mobs/enemies_fish.gd" id="4_opciq"]
 [ext_resource type="Script" path="res://scripts/rocks.gd" id="5_vjyml"]
 [ext_resource type="Shader" uid="uid://bcrdjpphyub0d" path="res://scenes/vigneethe.tres" id="6_opt6e"]
+[ext_resource type="Shader" uid="uid://cbugksecjd1e7" path="res://shaders/BLUEFFECT.tres" id="8_pyr7k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hikpt"]
+shader = ExtResource("8_pyr7k")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tkcll"]
 shader = ExtResource("6_opt6e")
 
