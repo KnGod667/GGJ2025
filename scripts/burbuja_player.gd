@@ -39,10 +39,7 @@ func _physics_process(delta: float) -> void:
 func hit_(): # Explotar la burbuja???
 	alive = false
 	hide()
+	
 
 func aumentar_o2(tamanho: float):
 	Ui.o2 += tamanho
-
-
-
-	
