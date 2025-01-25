@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://km1737hsgp5f"]
+[gd_scene load_steps=18 format=3 uid="uid://b46vhjlfhats6"]
 
 [ext_resource type="Script" path="res://scripts/burbuja_player.gd" id="1_411hq"]
 [ext_resource type="Texture2D" uid="uid://cwgam27vb2q5n" path="res://resources/player/buble_idle.png" id="2_ndtks"]
@@ -105,7 +105,7 @@ script = ExtResource("1_411hq")
 modulate = Color(1, 1, 1, 0.827451)
 sprite_frames = SubResource("SpriteFrames_xhcw4")
 animation = &"IDLE"
-frame_progress = 0.0401458
+frame_progress = 0.409516
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.52015, 3.52015)

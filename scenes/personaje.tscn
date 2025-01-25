@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw6q6vxj225wp"]
+[gd_scene load_steps=4 format=3 uid="uid://csxbxafn05pjo"]
 
 [ext_resource type="Script" path="res://scripts/personaje.gd" id="1_0ib0y"]
-[ext_resource type="PackedScene" uid="uid://km1737hsgp5f" path="res://scenes/burbuja_player.tscn" id="2_mdemc"]
+[ext_resource type="Texture2D" uid="uid://bug5qkmaxvqr3" path="res://scenes_pruebas/knight.png" id="2_4j80g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3jff"]
 radius = 8.47512
@@ -15,14 +15,10 @@ script = ExtResource("1_0ib0y")
 [node name="BubblePrueba" type="Sprite2D" parent="."]
 position = Vector2(5.96046e-08, 2)
 scale = Vector2(1.32438, 1.32438)
+texture = ExtResource("2_4j80g")
 hframes = 8
 vframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.76989, 1.76989)
 shape = SubResource("CapsuleShape2D_f3jff")
-
-[node name="Burbuja_player" parent="." instance=ExtResource("2_mdemc")]
-position = Vector2(0, 0)
-BURBUJA_MAX_SPEED = 50.0
-BURBUJA_ACELERACION = 5.0
