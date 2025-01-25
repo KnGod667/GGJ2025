@@ -18,7 +18,8 @@ func _timer_timeout():
 	geyIns = gey.instantiate()
 	if randi()%10 < 5:
 		scan(5)
-	scan(-5)
+	else:
+		scan(-5)
 
 #Escanea en la dir dicha, genera lo que quieras en esa posicion en que detecto colision y reinicia la pos para la sig generacion
 func scan(move):

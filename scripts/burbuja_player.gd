@@ -12,6 +12,7 @@ func _ready() -> void:
 	alive = true
 func _physics_process(delta: float) -> void:
 	#MOVIMIENTO
+	
 	if alive:
 		var mouse_direction = get_global_mouse_position()
 		#print(global_position.distance_to(mouse_direction))
