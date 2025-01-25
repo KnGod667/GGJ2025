@@ -15,12 +15,19 @@ func delete_():
 	
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	pass # hit_ funcion
-
+	
+	if area.is_in_group("BURBUJA"):
+		area.get_parent().aumentar_o2(randf_range(0.5,0.7))
+	
+	
+	if area.is_in_group("PLAYER"):
+		# >>>>> ANIMACION ABSORCION <<<<<	
+		area.get_parent().aumentar_burbuja(randf_range(0.6, 1))
+		delete_()
+	
+	if area.is_in_group("enemy"):
+		# >>>>> ANIMACION DE EXPLOTAR <<<<<	
+		delete_()
 
 func _on_timer_timeout() -> void:
 	delete_()
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.

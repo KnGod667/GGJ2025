@@ -34,8 +34,14 @@ func _physics_process(delta: float) -> void:
 
 func hit_(): # Explotar la burbuja???
 	alive = false
+	Ui.o2 = 0
 	hide()
 	emit_signal("bubble_alive_state_changed",alive)
 
 func aumentar_o2(tamanho: float):
-	Ui.o2 += tamanho
+	if Ui.o2 + tamanho < 1:
+		Ui.o2 += tamanho
+	else:
+		Ui.o2 = tamanho
+	alive = true
+	show()
