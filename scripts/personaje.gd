@@ -14,12 +14,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			modulate = Color(col.x,col.y,0.5)
 			pass
-		if global_position.distance_to(get_global_mouse_position()) > 5 and col==Vector2():
+		if global_position.distance_to(get_global_mouse_position()) > 5 and col==Vector2.ZERO:
 			velocity = global_position.direction_to(get_global_mouse_position()) * SPEED
 			move_and_collide(velocity)
-		if Ui.vida > 0:
-			Ui.vida -= 13 * delta
-					
+
 func dead():
 	pass
 	#queue_free() # Fin del Juego
