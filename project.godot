@@ -12,7 +12,8 @@ config_version=5
 
 config/name="Ggj 2025"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+
+boot_splash/image="res://resources/Pollordo_GGJ2025_logo.jpg"
 
 [autoload]
 
