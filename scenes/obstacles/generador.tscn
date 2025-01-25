@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm5j6sbefik67"]
+[gd_scene load_steps=3 format=3 uid="uid://dm5j6sbefik67"]
 
 [ext_resource type="Script" path="res://scripts/obstacles/generador.gd" id="1_o5jrp"]
+[ext_resource type="Texture2D" uid="uid://cm5mhao2hre2n" path="res://resources/Pollordo_GGJ2025_logo.png" id="2_fp6e0"]
 
 [node name="Generador" type="Node2D"]
-position = Vector2(426, 291)
 script = ExtResource("1_o5jrp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0595703, 0.0683594)
+texture = ExtResource("2_fp6e0")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.443
