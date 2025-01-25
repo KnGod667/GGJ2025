@@ -33,9 +33,10 @@ func get_collision_vector(point:Vector2i,radius:int) -> Vector2:
 	var sum = Vector2()
 	var count = 0
 	while rotation < rotation_limit:
+		var off = base.rotated(rotation)
 		var rot = Vector2(point)+base.rotated(rotation)
 		if is_coliding(rot):
-			sum+=rot.normalized()
+			sum+=off.normalized()
 			count+=1
 		rotation+=step
 	if count == 0:
