@@ -1,13 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnxw8vmc4fas2"]
+[gd_scene load_steps=12 format=3 uid="uid://dnxw8vmc4fas2"]
 
+[ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_3csix"]
 [ext_resource type="PackedScene" uid="uid://dyranqmajllgv" path="res://scenes/terrain generator.tscn" id="1_3vxyn"]
 [ext_resource type="PackedScene" uid="uid://b3jnvwtu7da8p" path="res://scenes/CONTROL_UI/ui.tscn" id="2_p63ek"]
 [ext_resource type="Script" path="res://scripts/obstacles.gd" id="3_lmpng"]
 [ext_resource type="PackedScene" uid="uid://cw6q6vxj225wp" path="res://scenes/personaje.tscn" id="3_s1njr"]
 [ext_resource type="Script" path="res://scripts/mobs/enemies_fish.gd" id="4_opciq"]
 [ext_resource type="Script" path="res://scripts/rocks.gd" id="5_vjyml"]
+[ext_resource type="Shader" uid="uid://doqp8heefhond" path="res://scenes/vigneethe.tres" id="6_opt6e"]
+[ext_resource type="Shader" uid="uid://yddyty7wxre3" path="res://shaders/BLUEFFECT.tres" id="8_pyr7k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hikpt"]
+shader = ExtResource("8_pyr7k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tkcll"]
+shader = ExtResource("6_opt6e")
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_3csix")
 
 [node name="TerrainGenerator" parent="." instance=ExtResource("1_3vxyn")]
 
@@ -23,5 +33,18 @@ script = ExtResource("4_opciq")
 
 [node name="Rocks" type="Node2D" parent="TerrainGenerator"]
 script = ExtResource("5_vjyml")
+
+[node name="ColorRect2" type="ColorRect" parent="TerrainGenerator"]
+material = SubResource("ShaderMaterial_hikpt")
+offset_right = 72.0
+offset_bottom = 40.0
+scale = Vector2(16.0714, 16.0714)
+color = Color(0, 0.0313726, 0.337255, 0.101961)
+
+[node name="vignette" type="ColorRect" parent="TerrainGenerator"]
+material = SubResource("ShaderMaterial_tkcll")
+offset_right = 72.0
+offset_bottom = 40.0
+scale = Vector2(16.1204, 16.1204)
 
 [node name="UI" parent="." instance=ExtResource("2_p63ek")]

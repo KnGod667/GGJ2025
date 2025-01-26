@@ -4,31 +4,42 @@ extends CharacterBody2D
 #Vars para el escaneo de colision, aunque las veo algo toscas
 var x = 20
 
+var live = true
+
 func _ready() -> void:
-	pass
+	$BubblePrueba.play("default")
 	
 	
 func _physics_process(delta: float) -> void:
-	look_at(get_global_mouse_position())
-	if !$Burbuja_player.alive:
+	if live:
+		look_at(get_global_mouse_position())
+	else:
+		velocity = Vector2(0,1) * SPEED * 0.5
+		move_and_collide(velocity)
+	
+	if GlobalVariables.vida <= 0 and live:
+		dead()
+	
+	if !$Burbuja_player.alive and live:
+		
 		var col = TerrainAdapter.get_collision_vector(global_position,x)
 		if col!=Vector2():
-			modulate = Color(1,0,1)
 			move_and_collide(-col*SPEED)
-		else:
-			modulate = Color(col.x,col.y,0.5)
 			pass
 		if global_position.distance_to(get_global_mouse_position()) > 5 and col==Vector2.ZERO:
 			velocity = global_position.direction_to(get_global_mouse_position()) * SPEED
 			move_and_collide(velocity)
 
 func dead():
-	pass
-	#queue_free() # Fin del Juego
+	live = false
+	$BubblePrueba.play("dead")
+	$CPUParticles2D.gravity = Vector2(0,-1000)
+	$CPUParticles2D.position = position
+	$PointLight2D.hide()
 
 func hit_():
 	GlobalVariables.vida -= 10
-	if GlobalVariables.vida <= 0:
+	if GlobalVariables.vida <= 0 and live:
 		dead()
 
 func aumentar_burbuja(tamanho:float):

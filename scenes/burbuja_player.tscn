@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://km1737hsgp5f"]
+[gd_scene load_steps=22 format=3 uid="uid://km1737hsgp5f"]
 
 [ext_resource type="Script" path="res://scripts/burbuja_player.gd" id="1_411hq"]
 [ext_resource type="Texture2D" uid="uid://cwgam27vb2q5n" path="res://resources/player/buble_idle.png" id="2_ndtks"]
+[ext_resource type="Texture2D" uid="uid://cp4jw35evrtfe" path="res://resources/jhulian/bubble popping.png" id="3_tdxvm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6k32o"]
 atlas = ExtResource("2_ndtks")
@@ -43,6 +44,30 @@ region = Rect2(327, 89, 109, 89)
 atlas = ExtResource("2_ndtks")
 region = Rect2(436, 89, 109, 89)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcjg2"]
+atlas = ExtResource("3_tdxvm")
+region = Rect2(0, 10, 130, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k32ph"]
+atlas = ExtResource("3_tdxvm")
+region = Rect2(130, 10, 130, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i0tt"]
+atlas = ExtResource("3_tdxvm")
+region = Rect2(260, 10, 130, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldmko"]
+atlas = ExtResource("3_tdxvm")
+region = Rect2(390, 10, 130, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i750j"]
+atlas = ExtResource("3_tdxvm")
+region = Rect2(520, 10, 130, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b0qr"]
+atlas = ExtResource("3_tdxvm")
+region = Rect2(0, 145, 130, 135)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_xhcw4"]
 animations = [{
 "frames": [{
@@ -79,22 +104,32 @@ animations = [{
 "loop": true,
 "name": &"IDLE",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcjg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k32ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i0tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldmko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i750j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b0qr")
+}],
+"loop": false,
+"name": &"break",
+"speed": 11.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ug4c"]
-
-[sub_resource type="Animation" id="Animation_jtyfa"]
-resource_name = "IDLE"
-loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_ucj7r"]
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nu4wh"]
-_data = {
-"IDLE": SubResource("Animation_jtyfa"),
-"RESET": SubResource("Animation_ucj7r")
-}
 
 [node name="Burbuja_player" type="CharacterBody2D"]
 position = Vector2(0, 3)
@@ -105,17 +140,13 @@ script = ExtResource("1_411hq")
 modulate = Color(1, 1, 1, 0.827451)
 position = Vector2(-4, 4)
 sprite_frames = SubResource("SpriteFrames_xhcw4")
-animation = &"IDLE"
-frame_progress = 0.0401458
+animation = &"break"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.52015, 3.52015)
 shape = SubResource("CircleShape2D_0ug4c")
-
-[node name="burbuja_animation" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_nu4wh")
-}
 
 [node name="Area2D" type="Area2D" parent="." groups=["BURBUJA"]]
 
