@@ -17,7 +17,7 @@ func is_coliding(point:Vector2i) -> bool:
 	
 	if y < 0:
 		y+=image.get_height()
-	if y > image.get_width() or y < 0:
+	if y >= image.get_height() or y < 0:
 		return false
 	if point.x >= image.get_width() or point.x < -400:
 		return false
