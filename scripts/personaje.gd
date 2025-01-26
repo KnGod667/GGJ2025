@@ -36,6 +36,8 @@ func dead():
 	$CPUParticles2D.gravity = Vector2(0,-1000)
 	$CPUParticles2D.position = position
 	$PointLight2D.hide()
+	GlobalVariables.dead = true
+	GlobalVariables.paused = true
 
 func hit_():
 	GlobalVariables.vida -= 10
