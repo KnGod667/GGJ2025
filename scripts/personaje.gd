@@ -9,18 +9,16 @@ func _physics_process(delta: float) -> void:
 		look_at(get_global_mouse_position())
 		var col = TerrainAdapter.get_collision_vector(global_position,x)
 		print(col)
-		if col!=Vector2():
+		if col!=Vector2.ZERO:
 			modulate = Color(1,0,1)
 			move_and_collide(-col*SPEED)
 		else:
 			modulate = Color(col.x,col.y,0.5)
 			pass
-		if global_position.distance_to(get_global_mouse_position()) > 5 and col==Vector2():
+		if global_position.distance_to(get_global_mouse_position()) > 5 and col==Vector2.ZERO:
 			velocity = global_position.direction_to(get_global_mouse_position()) * SPEED
 			move_and_collide(velocity)
-		if Ui.vida > 0:
-			Ui.vida -= 13 * delta
-					
+
 func dead():
 	pass
 	#queue_free() # Fin del Juego
