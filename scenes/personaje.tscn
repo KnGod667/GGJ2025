@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cw6q6vxj225wp"]
+[gd_scene load_steps=24 format=3 uid="uid://cw6q6vxj225wp"]
 
 [ext_resource type="Script" path="res://scripts/personaje.gd" id="1_0ib0y"]
 [ext_resource type="Texture2D" uid="uid://bmq1t4g8hmpvx" path="res://resources/sprites_prueba/XAVIERELBUZO.png" id="2_6akll"]
@@ -112,6 +112,15 @@ height = 29.3804
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xoqxy"]
 shader = ExtResource("4_25o7b")
 
+[sub_resource type="Gradient" id="Gradient_mfuu4"]
+offsets = PackedFloat32Array(0, 0.695652)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_texle"]
+gradient = SubResource("Gradient_mfuu4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Personaje" type="CharacterBody2D" groups=["PLAYER"]]
 rotation = 1.5708
 collision_layer = 2
@@ -156,6 +165,10 @@ spread = 86.35
 initial_velocity_max = 121.62
 angular_velocity_max = 4.5
 scale_amount_max = 14.51
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.72432, 1.72432)
+texture = SubResource("GradientTexture2D_texle")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
