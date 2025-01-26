@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 5
+@export var SPEED = 5.0
 #Vars para el escaneo de colision, aunque las veo algo toscas
 var x = 20
 
@@ -14,23 +14,20 @@ func _physics_process(delta: float) -> void:
 		else:
 			modulate = Color(col.x,col.y,0.5)
 			pass
-		if global_position.distance_to(get_global_mouse_position()) > 5 and col==Vector2():
+		if global_position.distance_to(get_global_mouse_position()) > 5 and col==Vector2.ZERO:
 			velocity = global_position.direction_to(get_global_mouse_position()) * SPEED
 			move_and_collide(velocity)
-		if Ui.vida > 0:
-			Ui.vida -= 13 * delta
-					
+
 func dead():
 	pass
 	#queue_free() # Fin del Juego
 
 func hit_():
-	Ui.vida -= 10
-	if Ui.vida <= 0:
+	GlobalVariables.vida -= 10
+	if GlobalVariables.vida <= 0:
 		dead()
 
 func aumentar_burbuja(tamanho:float):
-
 	$Burbuja_player.aumentar_o2(tamanho)
 
 

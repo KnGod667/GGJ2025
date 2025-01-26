@@ -14,6 +14,11 @@ func _physics_process(delta: float) -> void:
 	#MOVIMIENTO
 	
 	if alive:
+		var col = TerrainAdapter.get_collision_vector(global_position,20)
+		if col!=Vector2.ZERO:
+			hit_()
+			pass
+		
 		var mouse_direction = get_global_mouse_position()
 		if global_position.distance_to(mouse_direction) > 60:
 			speed = min(speed+BURBUJA_ACELERACION * delta,BURBUJA_MAX_SPEED)
@@ -27,21 +32,16 @@ func _physics_process(delta: float) -> void:
 		get_parent().move_and_collide(velocity)
 	
 	# o2 de las burbuja
-	if Ui.o2 > 0.1:
-		scale = Vector2(Ui.o2,Ui.o2)
+	if GlobalVariables.o2 > 0.1:
+		scale = Vector2(GlobalVariables.o2,GlobalVariables.o2)
 	elif alive:
 		hit_()
 
 func hit_(): # Explotar la burbuja???
 	alive = false
-	Ui.o2 = 0
+	GlobalVariables.o2 = 0
 	hide()
 	emit_signal("bubble_alive_state_changed",alive)
 
 func aumentar_o2(tamanho: float):
-	if Ui.o2 + tamanho < 1:
-		Ui.o2 += tamanho
-	else:
-		Ui.o2 = tamanho
-	alive = true
-	show()
+	GlobalVariables.o2 += tamanho

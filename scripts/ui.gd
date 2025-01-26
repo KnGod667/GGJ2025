@@ -1,14 +1,11 @@
-extends Node
+extends Control
 
-var vida: float
-var o2 : float 
-
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	vida = 100
-	o2 = 1
-	
-	
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if o2 > 0:
-		o2 -= 0.1 * delta
-	
+	$CanvasLayer/VBoxContainer/O2_ProgressBar.value = GlobalVariables.o2
+	$CanvasLayer/VBoxContainer/Vida_ProgressBar.value = GlobalVariables.vida
+	$CanvasLayer/VBoxContainer2/Time_Label.text = "Time: " + str(Time.get_ticks_msec()/1000)
