@@ -7,7 +7,7 @@ var direction
 
 
 func _ready() -> void:
-	pass
+	$Sprite2D.play("default")
 
 func _process(delta: float) -> void:
 	if position.y <= 650:
