@@ -5,7 +5,7 @@ extends CharacterBody2D
 var x = 20
 
 func _ready() -> void:
-	pass
+	$BubblePrueba.play("default")
 	
 	
 func _physics_process(delta: float) -> void:
