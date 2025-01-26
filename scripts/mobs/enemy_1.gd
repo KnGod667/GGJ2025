@@ -1,19 +1,17 @@
 extends Node2D
 
 @export var speed = 600
+var player : CharacterBody2D 
 var player_direction
 var direction
 
 func _ready() -> void:
-	
-	player_direction = $"../Burbuja_player".global_position
-	direction = (player_direction - position).normalized()
+	pass
 
 func _process(delta: float) -> void:
-	
-	var movement = direction * speed * delta
-	
-	position += movement
+	position.y += delta * speed
+	if position.y > 648:
+		queue_free()
 
 
 func _on_hit_area_area_entered(area: Area2D) -> void:
