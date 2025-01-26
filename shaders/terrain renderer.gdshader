@@ -2,6 +2,7 @@ shader_type canvas_item;
 uniform sampler2D text;
 uniform sampler2D background;
 uniform sampler2D cliff;
+uniform sampler2D noise;
 uniform int text_y_resolution;
 uniform int y_offset=0;
 uniform int resolution_offset = 0;
@@ -18,7 +19,7 @@ void fragment() {
 	uv.y = fract(uv.y-float(y_offset)*text_y_res);
 	COLOR = texture(text,uv);
 	if(COLOR.r>0.5){
-		COLOR = texture(cliff,SCREEN_UV);
+		COLOR = texture(cliff,fract(UV-vec2(0,float(y_offset)*SCREEN_PIXEL_SIZE.y)))*texture(noise,fract(UV-TIME/100.0));
 	} else{
 		COLOR = texture(background,SCREEN_UV);
 	}
