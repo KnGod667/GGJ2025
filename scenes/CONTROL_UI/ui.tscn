@@ -119,6 +119,7 @@ texture_progress = SubResource("GradientTexture2D_alkbf")
 
 [node name="Vida_ProgressBar" type="TextureProgressBar" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+max_value = 50.0
 texture_over = ExtResource("3_eqbcq")
 texture_progress = SubResource("GradientTexture2D_ndvk2")
 
