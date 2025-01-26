@@ -57,3 +57,6 @@ func check_area_collision(point:Vector2i,radius:int) -> bool:
 	
 func _ready() -> void:
 	pass # Replace with function body.
+	
+func reload():
+	initialized = false

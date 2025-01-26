@@ -13,7 +13,7 @@ var res
 func _ready() -> void:
 	res = get_viewport().size.x/2
 	pos = global_position + Vector2(res, -200)
-	pos2 = global_position + Vector2(res, -190)
+	pos2 = global_position + Vector2(res, -195)
 	add_child(timer1)
 	timer1.timeout.connect(_timer_timeout)
 	timer1.start(6)
@@ -34,12 +34,13 @@ func scan(move):
 		pos += Vector2(move, 0)
 	while !TerrainAdapter.is_coliding(pos2) and pos2.x<TerrainAdapter.image.get_width() and pos2.x>=0:
 		pos2 += Vector2(move, 0)
-	var pendiente = pendiente(pos, pos2)
-	print(pendiente)
-	var angle = atan(pendiente)+PI
+		
+	var pendiente = pendiente(pos,pos2)
+	var angle = atan(pendiente)
 	generateObj(pos, angle)
 	pos = global_position + Vector2(res, -200)
 	pos2 = global_position + Vector2(res, -190)
+
 
 #Esto esta chapucero pero add el objeto al nodo y lo posiciona donde encontro la colision
 func generateObj(posGen, pendiente):
@@ -47,6 +48,6 @@ func generateObj(posGen, pendiente):
 	add_child(geyIns)
 	f = get_child(get_child_count()-1)
 	f.global_position = posGen
-	
-func pendiente(p, p2):
+
+func pendiente(p:Vector2, p2:Vector2)->float:
 	return (p.y - p2.y)/(p.x - p2.x)

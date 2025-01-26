@@ -10,9 +10,10 @@ func _ready() -> void:
 	$Sprite2D.play("default")
 
 func _process(delta: float) -> void:
-	if position.y <= 650:
-		if TerrainAdapter.check_area_collision(global_position, 5):
-			direction = -TerrainAdapter.get_collision_vector(global_position, 5)
+	if position.y <= get_viewport().size.y+100:
+		var col = TerrainAdapter.get_collision_vector(global_position, 20)
+		if col != Vector2.ZERO:
+			direction = -col
 			position += (delta*speed)*direction
 		position.y += delta * speed
 	else:
