@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cw6q6vxj225wp"]
+[gd_scene load_steps=15 format=3 uid="uid://cw6q6vxj225wp"]
 
 [ext_resource type="Script" path="res://scripts/personaje.gd" id="1_0ib0y"]
 [ext_resource type="Texture2D" uid="uid://bmq1t4g8hmpvx" path="res://resources/sprites_prueba/XAVIERELBUZO.png" id="2_c6isu"]
 [ext_resource type="PackedScene" uid="uid://km1737hsgp5f" path="res://scenes/burbuja_player.tscn" id="2_mdemc"]
+[ext_resource type="Shader" uid="uid://w84t23vhtnc0" path="res://shaders/personaje.tres" id="4_25o7b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yj0x7"]
 atlas = ExtResource("2_c6isu")
@@ -60,6 +61,9 @@ height = 35.293
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vh8c5"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vud3r"]
+shader = ExtResource("4_25o7b")
+
 [node name="Personaje" type="CharacterBody2D" groups=["PLAYER"]]
 scale = Vector2(1.2, 1.2)
 collision_layer = 2
@@ -71,7 +75,7 @@ position = Vector2(5.96046e-08, 2)
 rotation = 1.57026
 scale = Vector2(1.44327, 1.44327)
 sprite_frames = SubResource("SpriteFrames_kxo3e")
-frame_progress = 0.988578
+frame_progress = 0.765907
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -80,7 +84,7 @@ shape = SubResource("CapsuleShape2D_f3jff")
 
 [node name="Burbuja_player" parent="." instance=ExtResource("2_mdemc")]
 modulate = Color(0.691357, 0.691357, 0.691357, 0.364706)
-position = Vector2(-1, 2)
+position = Vector2(0, 0)
 scale = Vector2(0.559616, 0.559616)
 BURBUJA_MAX_SPEED = 50.0
 BURBUJA_ACELERACION = 5.0
@@ -95,6 +99,23 @@ scale = Vector2(1.17624, 1.17624)
 position = Vector2(0, 1.70033)
 scale = Vector2(1.58912, 1.59257)
 shape = SubResource("CapsuleShape2D_vh8c5")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_vud3r")
+position = Vector2(-10.8333, 1.66667)
+amount = 10
+lifetime = 0.3
+randomness = 1.0
+direction = Vector2(-11.455, 0.2)
+spread = 178.51
+gravity = Vector2(100, 200)
+initial_velocity_max = 41.78
+angular_velocity_min = -4.8
+angular_velocity_max = 2.45
+angle_min = -79.0
+angle_max = 48.5
+scale_amount_min = 0.0
+scale_amount_max = 15.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
