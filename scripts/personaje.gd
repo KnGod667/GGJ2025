@@ -34,6 +34,7 @@ func dead():
 	live = false
 	$BubblePrueba.play("dead")
 	$CPUParticles2D.gravity = Vector2(0,-1000)
+	$CPUParticles2D.position = position
 	$PointLight2D.hide()
 
 func hit_():
