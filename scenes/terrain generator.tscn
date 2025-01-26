@@ -1,15 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyranqmajllgv"]
+[gd_scene load_steps=10 format=3 uid="uid://dyranqmajllgv"]
 
 [ext_resource type="Script" path="res://scripts/terrain_generator.gd" id="1_ss7b7"]
 [ext_resource type="Shader" path="res://shaders/terrain renderer.gdshader" id="2_bkwp5"]
+[ext_resource type="Texture2D" uid="uid://07gg8bvjs4m6" path="res://resources/jhulian/abyss_background.png" id="3_cyibd"]
 [ext_resource type="Texture2D" uid="uid://criqci602lbvc" path="res://resources/jhulian/wall texture.png" id="3_sp3u6"]
-
-[sub_resource type="Gradient" id="Gradient_xvlep"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.0555187, 0.149686, 0.370016, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p3uvk"]
-gradient = SubResource("Gradient_xvlep")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gakjw"]
 
@@ -28,7 +22,7 @@ shader_parameter/text_y_resolution = null
 shader_parameter/y_offset = 0
 shader_parameter/resolution_offset = 0
 shader_parameter/text = SubResource("GradientTexture2D_kasf8")
-shader_parameter/background = SubResource("GradientTexture2D_p3uvk")
+shader_parameter/background = ExtResource("3_cyibd")
 shader_parameter/cliff = ExtResource("3_sp3u6")
 shader_parameter/noise = SubResource("NoiseTexture2D_s2eq0")
 
