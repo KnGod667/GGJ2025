@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d06f2mcrhfy6l"]
+[gd_scene load_steps=13 format=3 uid="uid://d06f2mcrhfy6l"]
 
 [ext_resource type="Script" path="res://scripts/mobs/ENEMY_FISHH.gd" id="1_7lgjv"]
 [ext_resource type="Texture2D" uid="uid://t1sgci6vxbpt" path="res://resources/sprites_prueba/ELPESCADODEXAVIERATACA.png" id="1_mwdyd"]
+[ext_resource type="Shader" uid="uid://w84t23vhtnc0" path="res://shaders/personaje.tres" id="3_yx8cc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcm13"]
 atlas = ExtResource("1_mwdyd")
@@ -56,6 +57,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cbhf"]
 size = Vector2(68, 68)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r5twb"]
+shader = ExtResource("3_yx8cc")
+
 [node name="ENEMY_FISHH" type="Node2D"]
 script = ExtResource("1_7lgjv")
 
@@ -70,3 +74,25 @@ frame_progress = 0.340238
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_3cbhf")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_r5twb")
+position = Vector2(-24, 19)
+scale = Vector2(1.8114, 1.8114)
+amount = 30
+lifetime = 0.3
+spread = 86.35
+initial_velocity_max = 121.62
+angular_velocity_max = 4.5
+scale_amount_max = 30.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_r5twb")
+position = Vector2(-17, -15)
+scale = Vector2(1.8114, 1.8114)
+amount = 30
+lifetime = 0.3
+spread = 86.35
+initial_velocity_max = 121.62
+angular_velocity_max = 4.5
+scale_amount_max = 30.0
