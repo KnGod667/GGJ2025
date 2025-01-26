@@ -9,7 +9,7 @@ var pos
 func _ready() -> void:
 	add_child(timerR)
 	timerR.timeout.connect(_r_timer_timeout)
-	timerR.start(0.5)
+	timerR.start(GlobalVariables.spawn_rock)
 
 
 func _r_timer_timeout():

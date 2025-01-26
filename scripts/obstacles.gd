@@ -16,7 +16,7 @@ func _ready() -> void:
 	pos2 = global_position + Vector2(res, -190)
 	add_child(timer1)
 	timer1.timeout.connect(_timer_timeout)
-	timer1.start(5)
+	timer1.start(6)
 
 #Al acabar de forma aleatoria escanea o para derecha o para izquierda poquito a poco
 func _timer_timeout():

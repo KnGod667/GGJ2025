@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+var can = false
 
 func _ready() -> void:
 	
@@ -8,7 +9,9 @@ func _ready() -> void:
 	else:
 		apply_impulse(Vector2(randf_range(-600, -500),0),Vector2.ZERO)
 
-		
+func _process(delta: float) -> void:
+	if TerrainAdapter.is_coliding(global_position) and can:
+		delete_()
 
 func delete_():
 	queue_free()
@@ -31,3 +34,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func _on_timer_timeout() -> void:
 	delete_()
+
+
+func _on_timer_2_timeout() -> void:
+	can = true

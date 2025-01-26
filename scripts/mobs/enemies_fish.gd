@@ -1,13 +1,12 @@
 extends Node2D
 
-@export var time_spawn: float 
 var timer :Timer = Timer.new() 
 var fish_enemy = preload("res://scenes/mobs/fish.tscn")
 
 func _ready() -> void:
 	add_child(timer)
 	timer.timeout.connect(_timer_timeout)
-	timer.start(time_spawn)
+	timer.start(GlobalVariables.spawn_fish)
 	
 func crear_enemigo():
 	var pos: Vector2 
