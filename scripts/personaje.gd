@@ -4,9 +4,13 @@ extends CharacterBody2D
 #Vars para el escaneo de colision, aunque las veo algo toscas
 var x = 20
 
+func _ready() -> void:
+	$BubblePrueba.play("default")
+	
+	
 func _physics_process(delta: float) -> void:
+	look_at(get_global_mouse_position())
 	if !$Burbuja_player.alive:
-		look_at(get_global_mouse_position())
 		var col = TerrainAdapter.get_collision_vector(global_position,x)
 		if col!=Vector2():
 			modulate = Color(1,0,1)
