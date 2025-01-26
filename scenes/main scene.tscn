@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cw6q6vxj225wp" path="res://scenes/personaje.tscn" id="3_s1njr"]
 [ext_resource type="Script" path="res://scripts/mobs/enemies_fish.gd" id="4_opciq"]
 [ext_resource type="Script" path="res://scripts/rocks.gd" id="5_vjyml"]
-[ext_resource type="Shader" uid="uid://doqp8heefhond" path="res://scenes/vigneethe.tres" id="6_opt6e"]
-[ext_resource type="Shader" uid="uid://yddyty7wxre3" path="res://shaders/BLUEFFECT.tres" id="8_pyr7k"]
+[ext_resource type="Shader" uid="uid://qjrngsebfmyi" path="res://scenes/vigneethe.tres" id="6_opt6e"]
+[ext_resource type="Shader" uid="uid://dk2bsq52jjv5c" path="res://shaders/BLUEFFECT.tres" id="8_pyr7k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hikpt"]
 shader = ExtResource("8_pyr7k")

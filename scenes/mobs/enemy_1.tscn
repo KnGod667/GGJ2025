@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/mobs/enemy_1.gd" id="1_5ak0b"]
 [ext_resource type="Texture2D" uid="uid://bjoqf71eg6uui" path="res://resources/sprites_prueba/PIEDRADEXAVIER.png" id="2_gxb4f"]
-[ext_resource type="Shader" uid="uid://w84t23vhtnc0" path="res://shaders/personaje.tres" id="3_x7dh6"]
+[ext_resource type="Shader" uid="uid://b6nspdqrpifor" path="res://shaders/personaje.tres" id="3_x7dh6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_unmrh"]
 atlas = ExtResource("2_gxb4f")
