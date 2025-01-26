@@ -17,6 +17,9 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2(0,1) * SPEED * 0.5
 		move_and_collide(velocity)
 	
+	if GlobalVariables.vida <= 0 and live:
+		dead()
+	
 	if !$Burbuja_player.alive and live:
 		
 		var col = TerrainAdapter.get_collision_vector(global_position,x)
@@ -30,7 +33,8 @@ func _physics_process(delta: float) -> void:
 func dead():
 	live = false
 	$BubblePrueba.play("dead")
-	#queue_free() # Fin del Juego
+	$CPUParticles2D.gravity = Vector2(0,-1000)
+	$PointLight2D.hide()
 
 func hit_():
 	GlobalVariables.vida -= 10
