@@ -25,7 +25,7 @@ shape = SubResource("CircleShape2D_ari5y")
 [node name="Aumentar vida" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aumentar vida"]
-scale = Vector2(2.43591, 2.43591)
+scale = Vector2(3.0742, 3.0742)
 shape = SubResource("CircleShape2D_hjn7h")
 
 [node name="Timer" type="Timer" parent="."]

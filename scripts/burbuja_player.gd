@@ -44,4 +44,9 @@ func hit_(): # Explotar la burbuja???
 	emit_signal("bubble_alive_state_changed",alive)
 
 func aumentar_o2(tamanho: float):
-	GlobalVariables.o2 += tamanho
+	if tamanho + GlobalVariables.o2 > 1:
+		GlobalVariables.o2 = 1
+	else:
+		GlobalVariables.o2 += tamanho
+	alive = true
+	show()
