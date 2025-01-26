@@ -1,9 +1,34 @@
-[gd_scene load_steps=15 format=3 uid="uid://cw6q6vxj225wp"]
+[gd_scene load_steps=22 format=3 uid="uid://cw6q6vxj225wp"]
 
 [ext_resource type="Script" path="res://scripts/personaje.gd" id="1_0ib0y"]
 [ext_resource type="Texture2D" uid="uid://bmq1t4g8hmpvx" path="res://resources/sprites_prueba/XAVIERELBUZO.png" id="2_6akll"]
+[ext_resource type="Texture2D" uid="uid://cgjud8g2d1nbp" path="res://resources/sprites_prueba/XAVIERELBUZOMUERE.png" id="2_fanmp"]
 [ext_resource type="PackedScene" uid="uid://km1737hsgp5f" path="res://scenes/burbuja_player.tscn" id="2_mdemc"]
 [ext_resource type="Shader" uid="uid://w84t23vhtnc0" path="res://shaders/personaje.tres" id="4_25o7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ivtd"]
+atlas = ExtResource("2_fanmp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj3m2"]
+atlas = ExtResource("2_fanmp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmw7n"]
+atlas = ExtResource("2_fanmp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdhnu"]
+atlas = ExtResource("2_fanmp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3wh4"]
+atlas = ExtResource("2_fanmp")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thn3t"]
+atlas = ExtResource("2_fanmp")
+region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ml7kh"]
 atlas = ExtResource("2_6akll")
@@ -31,6 +56,29 @@ region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jrtmn"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ivtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj3m2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmw7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdhnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3wh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thn3t")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ml7kh")
@@ -75,15 +123,15 @@ position = Vector2(0, -2)
 rotation = 1.5708
 scale = Vector2(2.03501, 2.03501)
 sprite_frames = SubResource("SpriteFrames_jrtmn")
-frame_progress = 0.0228261
+animation = &"dead"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 scale = Vector2(1.76989, 1.76989)
 shape = SubResource("CapsuleShape2D_f3jff")
 
 [node name="Burbuja_player" parent="." instance=ExtResource("2_mdemc")]
-visible = false
 modulate = Color(1, 1, 1, 0.533333)
 position = Vector2(0, 0)
 scale = Vector2(0.76213, 0.76213)
@@ -94,7 +142,6 @@ BURBUJA_ACELERACION = 10.0
 wait_time = 0.5
 
 [node name="Area2D" type="Area2D" parent="." groups=["PLAYER"]]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(1.58912, 1.59257)
