@@ -21,7 +21,7 @@ void fragment() {
 	if(COLOR.r>0.5){
 		COLOR = texture(cliff,fract(UV-vec2(0,float(y_offset)*SCREEN_PIXEL_SIZE.y)))*texture(noise,fract(UV-TIME/100.0));
 	} else{
-		COLOR = texture(background,SCREEN_UV);
+		COLOR = texture(background,UV);
 	}
 	//COLOR = vec4(uv,0,1);
 	//COLOR*=vec4(0.5 + 0.5*cos(TIME+UV.xyx+vec3(0,2,4)),1.0);

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmq1t4g8hmpvx" path="res://resources/sprites_prueba/XAVIERELBUZO.png" id="2_6akll"]
 [ext_resource type="Texture2D" uid="uid://cgjud8g2d1nbp" path="res://resources/sprites_prueba/XAVIERELBUZOMUERE.png" id="2_fanmp"]
 [ext_resource type="PackedScene" uid="uid://km1737hsgp5f" path="res://scenes/burbuja_player.tscn" id="2_mdemc"]
-[ext_resource type="Shader" uid="uid://w84t23vhtnc0" path="res://shaders/personaje.tres" id="4_25o7b"]
+[ext_resource type="Shader" uid="uid://b6nspdqrpifor" path="res://shaders/personaje.tres" id="4_25o7b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ivtd"]
 atlas = ExtResource("2_fanmp")
