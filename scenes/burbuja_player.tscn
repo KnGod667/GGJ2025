@@ -103,6 +103,7 @@ script = ExtResource("1_411hq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.827451)
+position = Vector2(-4, 4)
 sprite_frames = SubResource("SpriteFrames_xhcw4")
 animation = &"IDLE"
 frame_progress = 0.0401458
@@ -119,6 +120,5 @@ libraries = {
 [node name="Area2D" type="Area2D" parent="." groups=["BURBUJA"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4, -2)
 scale = Vector2(3.52015, 3.52015)
 shape = SubResource("CircleShape2D_0ug4c")

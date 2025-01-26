@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://km1737hsgp5f" path="res://scenes/burbuja_player.tscn" id="2_mdemc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3jff"]
-radius = 8.47512
-height = 29.3804
+radius = 7.99576
+height = 35.293
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vh8c5"]
 
@@ -23,11 +23,14 @@ hframes = 8
 vframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.76989, 1.76989)
+visible = false
+position = Vector2(0, 2)
+scale = Vector2(1.75093, 1.24671)
 shape = SubResource("CapsuleShape2D_f3jff")
 
 [node name="Burbuja_player" parent="." instance=ExtResource("2_mdemc")]
-position = Vector2(0, 0)
+position = Vector2(-1, 2)
+scale = Vector2(0.559616, 0.559616)
 BURBUJA_MAX_SPEED = 50.0
 BURBUJA_ACELERACION = 5.0
 
@@ -35,8 +38,11 @@ BURBUJA_ACELERACION = 5.0
 wait_time = 0.5
 
 [node name="Area2D" type="Area2D" parent="." groups=["PLAYER"]]
+visible = false
+scale = Vector2(1.17624, 1.17624)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.70033)
 scale = Vector2(1.58912, 1.59257)
 shape = SubResource("CapsuleShape2D_vh8c5")
 
