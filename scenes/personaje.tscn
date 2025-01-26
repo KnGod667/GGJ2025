@@ -1,8 +1,59 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw6q6vxj225wp"]
+[gd_scene load_steps=15 format=3 uid="uid://cw6q6vxj225wp"]
 
 [ext_resource type="Script" path="res://scripts/personaje.gd" id="1_0ib0y"]
-[ext_resource type="Texture2D" uid="uid://cm5mhao2hre2n" path="res://resources/Pollordo_GGJ2025_logo.png" id="2_h77eb"]
+[ext_resource type="Texture2D" uid="uid://bmq1t4g8hmpvx" path="res://resources/sprites_prueba/XAVIERELBUZO.png" id="2_6akll"]
 [ext_resource type="PackedScene" uid="uid://km1737hsgp5f" path="res://scenes/burbuja_player.tscn" id="2_mdemc"]
+[ext_resource type="Shader" uid="uid://w84t23vhtnc0" path="res://shaders/personaje.tres" id="4_25o7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml7kh"]
+atlas = ExtResource("2_6akll")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5iek"]
+atlas = ExtResource("2_6akll")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1qcr"]
+atlas = ExtResource("2_6akll")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5sbm"]
+atlas = ExtResource("2_6akll")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy3sr"]
+atlas = ExtResource("2_6akll")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhlqn"]
+atlas = ExtResource("2_6akll")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jrtmn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml7kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5iek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1qcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5sbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy3sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhlqn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3jff"]
 radius = 8.47512
@@ -10,24 +61,32 @@ height = 29.3804
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vh8c5"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xoqxy"]
+shader = ExtResource("4_25o7b")
+
 [node name="Personaje" type="CharacterBody2D" groups=["PLAYER"]]
+rotation = 1.5708
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_0ib0y")
 
-[node name="BubblePrueba" type="Sprite2D" parent="."]
-position = Vector2(5.96046e-08, 2)
-scale = Vector2(0.209, 0.209)
-texture = ExtResource("2_h77eb")
-hframes = 8
-vframes = 6
+[node name="BubblePrueba" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+rotation = 1.5708
+scale = Vector2(2.03501, 2.03501)
+sprite_frames = SubResource("SpriteFrames_jrtmn")
+frame_progress = 0.0228261
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(1.76989, 1.76989)
 shape = SubResource("CapsuleShape2D_f3jff")
 
 [node name="Burbuja_player" parent="." instance=ExtResource("2_mdemc")]
+visible = false
+modulate = Color(1, 1, 1, 0.533333)
 position = Vector2(0, 0)
+scale = Vector2(0.76213, 0.76213)
 BURBUJA_MAX_SPEED = 30.0
 BURBUJA_ACELERACION = 10.0
 
@@ -35,10 +94,21 @@ BURBUJA_ACELERACION = 10.0
 wait_time = 0.5
 
 [node name="Area2D" type="Area2D" parent="." groups=["PLAYER"]]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(1.58912, 1.59257)
 shape = SubResource("CapsuleShape2D_vh8c5")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_xoqxy")
+position = Vector2(-23, 1.00536e-06)
+amount = 19
+lifetime = 0.3
+spread = 86.35
+initial_velocity_max = 121.62
+angular_velocity_max = 4.5
+scale_amount_max = 14.51
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
