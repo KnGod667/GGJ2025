@@ -21,6 +21,10 @@ config/icon="res://icon.svg"
 TerrainAdapter="*res://scripts/terrain_adapter.gd"
 GlobalVariables="*res://scripts/global_variables.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="Ggj 2025"

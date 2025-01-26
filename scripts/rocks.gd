@@ -13,11 +13,10 @@ func _ready() -> void:
 
 
 func _r_timer_timeout():
-	rnd =  randi_range(-300, 300)
-	pos = Vector2(rnd, -640)
-	if !TerrainAdapter.is_coliding(pos):
+	rnd =  randi_range(0,get_viewport().size.x)
+	pos = Vector2(rnd, -200)
+	if !TerrainAdapter.check_area_collision(pos, 5):
 		rockIns = rock.instantiate()
 		rockIns.position = pos
 		add_child(rockIns)
-		r = get_child(get_child_count()-1)
 		

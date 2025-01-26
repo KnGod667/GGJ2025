@@ -5,12 +5,17 @@ var player : CharacterBody2D
 var player_direction
 var direction
 
+
 func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	position.y += delta * speed
-	if position.y > 648:
+	if position.y <= 650:
+		if TerrainAdapter.check_area_collision(global_position, 5):
+			direction = -TerrainAdapter.get_collision_vector(global_position, 5)
+			position += (delta*speed)*direction
+		position.y += delta * speed
+	else:
 		queue_free()
 
 
