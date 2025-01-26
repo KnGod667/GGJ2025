@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Ui="*res://scripts/ui.gd"
 TerrainAdapter="*res://scripts/terrain_adapter.gd"
 GlobalVariables="*res://scripts/global_variables.gd"
 
