@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://bvbor1j4b5lps"]
+
+[ext_resource type="Script" path="res://scripts/mobs/enemy_1.gd" id="1_5ak0b"]
+[ext_resource type="Texture2D" uid="uid://bjoqf71eg6uui" path="res://resources/sprites_prueba/PIEDRADEXAVIER.png" id="2_gxb4f"]
+[ext_resource type="Shader" uid="uid://b6nspdqrpifor" path="res://shaders/personaje.tres" id="3_x7dh6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unmrh"]
+atlas = ExtResource("2_gxb4f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8xvk"]
+atlas = ExtResource("2_gxb4f")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yffh5"]
+atlas = ExtResource("2_gxb4f")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d874"]
+atlas = ExtResource("2_gxb4f")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8h0d"]
+atlas = ExtResource("2_gxb4f")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru78n"]
+atlas = ExtResource("2_gxb4f")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohw2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unmrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8xvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yffh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d874")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8h0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru78n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48s2t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8gyvg"]
+shader = ExtResource("3_x7dh6")
+
+[node name="Roca_desde_arriba" type="Node2D"]
+scale = Vector2(2.04651, 2.04651)
+script = ExtResource("1_5ak0b")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.977273, 0.488636)
+sprite_frames = SubResource("SpriteFrames_ohw2f")
+frame_progress = 0.00970465
+
+[node name="HIT_AREA" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HIT_AREA"]
+shape = SubResource("CircleShape2D_48s2t")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_8gyvg")
+position = Vector2(-0.488638, -0.977274)
+amount = 20
+spread = 86.35
+gravity = Vector2(0, -980)
+initial_velocity_max = 12.55
+scale_amount_max = 14.51
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_8gyvg")
+position = Vector2(-9.2841, 6.35228)
+amount = 20
+spread = 86.35
+gravity = Vector2(0, -980)
+initial_velocity_max = 12.55
+scale_amount_max = 14.51
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_8gyvg")
+position = Vector2(8.30682, 3.90909)
+amount = 20
+spread = 86.35
+gravity = Vector2(0, -980)
+initial_velocity_max = 12.55
+scale_amount_max = 14.51
+
+[connection signal="area_entered" from="HIT_AREA" to="." method="_on_hit_area_area_entered"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ceg2lwgdt04df"
+path="res://.godot/imported/SONIDO AL MORIR.wav-22950550a93e97d3fc264141280afece.sample"
+
+[deps]
+
+source_file="res://MUSIC/SONIDO AL MORIR.wav"
+dest_files=["res://.godot/imported/SONIDO AL MORIR.wav-22950550a93e97d3fc264141280afece.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

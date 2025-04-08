@@ -1,0 +1,86 @@
+[gd_scene load_steps=19 format=3 uid="uid://dnxw8vmc4fas2"]
+
+[ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_3csix"]
+[ext_resource type="PackedScene" uid="uid://dyranqmajllgv" path="res://scenes/terrain generator.tscn" id="1_3vxyn"]
+[ext_resource type="PackedScene" uid="uid://b3jnvwtu7da8p" path="res://scenes/CONTROL_UI/ui.tscn" id="2_p63ek"]
+[ext_resource type="Script" path="res://scripts/obstacles.gd" id="3_lmpng"]
+[ext_resource type="PackedScene" uid="uid://cw6q6vxj225wp" path="res://scenes/personaje.tscn" id="3_s1njr"]
+[ext_resource type="Script" path="res://scripts/mobs/enemies_fish.gd" id="4_opciq"]
+[ext_resource type="Script" path="res://scripts/rocks.gd" id="5_vjyml"]
+[ext_resource type="Shader" uid="uid://qjrngsebfmyi" path="res://scenes/vigneethe.tres" id="6_opt6e"]
+[ext_resource type="Shader" uid="uid://dk2bsq52jjv5c" path="res://shaders/BLUEFFECT.tres" id="8_pyr7k"]
+[ext_resource type="Script" path="res://scripts/sound_handler.gd" id="10_wvn6r"]
+[ext_resource type="AudioStream" uid="uid://0wsnrv7fidij" path="res://MUSIC/MUSICA_GENERAL.mp3" id="11_vru56"]
+[ext_resource type="AudioStream" uid="uid://ceg2lwgdt04df" path="res://MUSIC/SONIDO AL MORIR.wav" id="12_brgit"]
+[ext_resource type="AudioStream" uid="uid://dlcjpckk3kkvu" path="res://MUSIC/SONIDO AL MORIR 2.wav" id="13_3vn25"]
+[ext_resource type="AudioStream" uid="uid://bh0qb2ju70sov" path="res://MUSIC/death.mp3" id="14_1kbus"]
+[ext_resource type="AudioStream" uid="uid://cbqm7yh5l7vfh" path="res://MUSIC/bubble-pop-283674.mp3" id="15_wddiy"]
+[ext_resource type="AudioStream" uid="uid://2ghs0iqm2j18" path="res://MUSIC/click.mp3" id="16_38uu2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hikpt"]
+shader = ExtResource("8_pyr7k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tkcll"]
+shader = ExtResource("6_opt6e")
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_3csix")
+
+[node name="TerrainGenerator" parent="." instance=ExtResource("1_3vxyn")]
+process_mode = 4
+
+[node name="Personaje" parent="TerrainGenerator" instance=ExtResource("3_s1njr")]
+z_index = 2
+position = Vector2(584, 577)
+
+[node name="Obstacles" type="Node2D" parent="TerrainGenerator"]
+script = ExtResource("3_lmpng")
+
+[node name="Enemies_fish" type="Node2D" parent="TerrainGenerator"]
+script = ExtResource("4_opciq")
+
+[node name="Rocks" type="Node2D" parent="TerrainGenerator"]
+script = ExtResource("5_vjyml")
+
+[node name="ColorRect2" type="ColorRect" parent="TerrainGenerator"]
+material = SubResource("ShaderMaterial_hikpt")
+offset_right = 72.0
+offset_bottom = 40.0
+scale = Vector2(16.0714, 16.0714)
+color = Color(0, 0.0313726, 0.337255, 0.101961)
+
+[node name="vignette" type="ColorRect" parent="TerrainGenerator"]
+material = SubResource("ShaderMaterial_tkcll")
+offset_right = 72.0
+offset_bottom = 40.0
+scale = Vector2(16.1204, 16.1204)
+
+[node name="UI" parent="." instance=ExtResource("2_p63ek")]
+
+[node name="AudioHandler" type="Node" parent="."]
+script = ExtResource("10_wvn6r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioHandler"]
+stream = ExtResource("11_vru56")
+parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="AudioHandler"]
+stream = ExtResource("12_brgit")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="AudioHandler"]
+stream = ExtResource("13_3vn25")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="AudioHandler"]
+stream = ExtResource("14_1kbus")
+
+[node name="pop" type="AudioStreamPlayer" parent="AudioHandler"]
+stream = ExtResource("15_wddiy")
+bus = &"bubble"
+
+[node name="click" type="AudioStreamPlayer" parent="AudioHandler"]
+stream = ExtResource("16_38uu2")
+
+[connection signal="clicked" from="." to="AudioHandler" method="_on_main_scene_clicked"]
+[connection signal="game_started" from="." to="AudioHandler" method="_on_main_scene_game_started"]
+[connection signal="bubble_popped" from="TerrainGenerator/Personaje" to="AudioHandler" method="_on_personaje_bubble_popped"]
+[connection signal="character_died" from="TerrainGenerator/Personaje" to="AudioHandler" method="_on_personaje_character_died"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm5j6sbefik67"]
+
+[ext_resource type="Script" path="res://scripts/obstacles/generador.gd" id="1_o5jrp"]
+[ext_resource type="Texture2D" uid="uid://ck0gtu4q58tj7" path="res://resources/sprites_prueba/ELHUECODEXAVIER.png" id="2_3jpt6"]
+
+[node name="Generador" type="Node2D"]
+modulate = Color(0.615307, 0.646373, 0.907891, 1)
+scale = Vector2(1.45, 1.45)
+script = ExtResource("1_o5jrp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.386079, 0.443041)
+texture = ExtResource("2_3jpt6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

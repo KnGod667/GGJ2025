@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cggy3ffvbuy63"]
+
+[ext_resource type="PackedScene" uid="uid://b3jnvwtu7da8p" path="res://scenes/CONTROL_UI/ui.tscn" id="1_3oqb8"]
+[ext_resource type="PackedScene" uid="uid://km1737hsgp5f" path="res://scenes/burbuja_player.tscn" id="1_8rm1v"]
+[ext_resource type="PackedScene" uid="uid://cw6q6vxj225wp" path="res://scenes/personaje.tscn" id="2_u487s"]
+
+[node name="WorldGeneral" type="Node2D"]
+
+[node name="UI" parent="." instance=ExtResource("1_3oqb8")]
+
+[node name="Burbuja_player" parent="." instance=ExtResource("1_8rm1v")]
+z_index = 1
+position = Vector2(571, 318)
+
+[node name="Personaje" parent="." instance=ExtResource("2_u487s")]
+
+[node name="Time_of_Game" type="Timer" parent="."]
+
+[connection signal="timeout" from="Time_of_Game" to="UI" method="_on_time_of_game_timeout"]
